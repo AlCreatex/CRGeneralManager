@@ -4,57 +4,57 @@
 1) При первом запуске приложения, вам нужно вызвать, **НО ЕСЛИ ВЫ ЗАПУСКАЕТЕ AppManager, ВЫ МОЖЕТЕ ПРОПУСТИТЬ ЭТОТ ПУНКТ**:
 
 ```swift
-	GoogleAdsManager.shared.configuration()
+   GoogleAdsManager.shared.configuration()
 ```
 
 2) Далее внутри приложения для показа реклама, вы должны вызвать:
 
 ```swift
-	GoogleAdsManager.shared.presentInterstitial(viewController: self) {
-        "Ваши действия после того как реклама закроется или же произойдет ошибка"
-    }
+   GoogleAdsManager.shared.presentInterstitial(viewController: self) {
+      "Ваши действия после того как реклама закроется или же произойдет ошибка"
+   }
 ```
 
 ## StoreManager
 1) При первом запуске приложения, вам нужно вызвать, **НО ЕСЛИ ВЫ ЗАПУСКАЕТЕ AppManager, ВЫ МОЖЕТЕ ПРОПУСТИТЬ ЭТОТ ПУНКТ**:
 
 ```swift
-	StoreManager.shared.configuration()
+   StoreManager.shared.configuration()
 ```
 
 2) Далее внутри приложения для офрмления покупки или же ее восстановления, вы должны вызвать:
 
 Оформление подписки:
 ```swift
-	StoreManager.shared.purchase(product: "Выбираем из списка нужный вам id подписки") { (result) in
-            switch result {
-            case .successful:
-                print("successful")
-            case .failed:
-                print("failed")
-            case .cancelled:
-                print("cancelled")
-            }
-        }
+   StoreManager.shared.purchase(product: "Выбираем из списка нужный вам id подписки") { (result) in
+      switch result {
+         case .successful:
+            print("successful")
+         case .failed:
+            print("failed")
+         case .cancelled:
+            print("cancelled")
+      }
+   }
 ```
 
 Восстановление покупки:
 ```swift
-	StoreManager.shared.restore { (result) in
-            switch result {
-            case .successful:
-                print("successful")
-            case .failed:
-                print("failed")
-         	}
-     	}
+   StoreManager.shared.restore { (result) in
+      switch result {
+         case .successful:
+            print("successful")
+         case .failed:
+            print("failed")
+      }
+   }
 ```
 
 ## AnalyticsManager
 1) Для отправки ивента, вы должны вызвать:
 
 ```swift
-	AnalyticsManager.trackWith(eventName: .init(rawValue: "Выбрать из списка нужный вам ивент или же написать свой"))
+   AnalyticsManager.trackWith(eventName: .init(rawValue: "Выбрать из списка нужный вам ивент или же написать свой"))
 ```
 
 2) Отправлять ивент по успешной подписке как и отмене покупки не требуется, это уже прописано внутри StoreManager.
@@ -63,28 +63,28 @@
 1) Для запуска всех сервисов, вы должны вызывать в AppDelegate:
 
 ```swift
-	AppManager().configuration(application: application, 
-							   launchOptions: launchOptions, 
-							   userAcquisitionServer: .init(rawValue: "Выбрать из списка нужный вам сервер или же написать свой"))
+   AppManager().configuration(application: application, 
+			      launchOptions: launchOptions, 
+			      userAcquisitionServer: .init(rawValue: "Выбрать из списка нужный вам сервер или же написать свой"))
 ```
 
 2) Описание, какие сервисы запускаются в AppManager:
 
 ```swift
-	public func configuration(application: UIApplication,
-                              launchOptions: [UIApplication.LaunchOptionsKey: Any]?,
-                              userAcquisitionServer: UserAcquisition.Urls = .inapps) {
+   public func configuration(application: UIApplication,
+                             launchOptions: [UIApplication.LaunchOptionsKey: Any]?,
+                             userAcquisitionServer: UserAcquisition.Urls = .inapps) {
         
-        FacebookService().configuration(launchOptions: launchOptions)
-        SearchAdsService().configuration()
-        YandexService().configuration()
+      FacebookService().configuration(launchOptions: launchOptions)
+      SearchAdsService().configuration()
+      YandexService().configuration()
         
-        UserAcquisition.shared.configure(withAPIKey: GettingsKeysFromPlist.getKey(by: .userAcquisitionKey) as! String,
-                                         urlRequest: userAcquisitionServer)
-        UserAcquisition.shared.conversionInfo.fbAnonymousId = AppEvents.anonymousID
+      UserAcquisition.shared.configure(withAPIKey: GettingsKeysFromPlist.getKey(by: .userAcquisitionKey) as! String,
+                                       urlRequest: userAcquisitionServer)
+      UserAcquisition.shared.conversionInfo.fbAnonymousId = AppEvents.anonymousID
         
-        StoreManager.shared.configuration()
-        SKAdNetwork.registerAppForAdNetworkAttribution()
+      StoreManager.shared.configuration()
+      SKAdNetwork.registerAppForAdNetworkAttribution()
     }
 ```
 
@@ -92,55 +92,44 @@
 1) Для запуска Firebase, FirebaseRemoteConfig, AppsFlyer, ATT, вы должны вызвать в AppDelegate:
 
 ```swift
-	TrackingTransparencyManager().configuration(startScreen: {
+   TrackingTransparencyManager().configuration(startScreen: {
         "Тут устанавливаете запуск первого экрана"
-    })
+   })
 ```
 
 2) Для запуска первого экрана, вы описать функцию, а после вызывать ее в блоке выше:
 
 ```swift
-	internal func startScreen() {
-        let vc = UIStoryboard.init(name: "Наименование вашего Storyboard", bundle: nil).instantiateInitialViewController()!
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = vc
-        window?.makeKeyAndVisible()
-    }
+   internal func startScreen() {
+      let vc = UIStoryboard.init(name: "Наименование вашего Storyboard", bundle: nil).instantiateInitialViewController()!
+      window = UIWindow(frame: UIScreen.main.bounds)
+      window?.rootViewController = vc
+      window?.makeKeyAndVisible()
+   }
 ```
 
 ## Стэк Pods которые присутствуют:
 
 ```
-    #Basic
-    pod 'lottie-ios'
-    pod 'NVActivityIndicatorView'
-    pod 'DeviceKit'
-  
-    #Subscription and purchase
-    pod 'SwiftyStoreKit'
-  
-    #Metrics
-    pod 'Firebase/Auth'
-    pod 'Firebase/Analytics'
-    pod 'Firebase/Crashlytics'
-    pod 'Firebase/RemoteConfig'
-  
-    pod 'FBSDKCoreKit'
-    pod 'FBAudienceNetwork'
-  
-    pod 'YandexMobileMetrica'
-    pod 'AppsFlyerFramework'
-  
-    #Product
-    pod 'UserAcquisition', :git => "https://github.com/inapps-io/UserAcquisition.git"
-  
-    #Ads and Mediation
-    pod 'Google-Mobile-Ads-SDK'
-    pod 'GoogleMobileAdsMediationIronSource'
-    pod 'GoogleMobileAdsMediationAdColony'
-    pod 'GoogleMobileAdsMediationAppLovin'
-    pod 'GoogleMobileAdsMediationFacebook'
-    pod 'GoogleMobileAdsMediationUnity'
-    pod 'GoogleMobileAdsMediationTapjoy'
-    pod 'GoogleMobileAdsMediationVungle'
+   pod 'lottie-ios'
+   pod 'NVActivityIndicatorView'
+   pod 'DeviceKit'
+   pod 'SwiftyStoreKit'
+   pod 'Firebase/Auth'
+   pod 'Firebase/Analytics'
+   pod 'Firebase/Crashlytics'
+   pod 'Firebase/RemoteConfig'
+   pod 'FBSDKCoreKit'
+   pod 'FBAudienceNetwork'
+   pod 'YandexMobileMetrica'
+   pod 'AppsFlyerFramework'
+   pod 'UserAcquisition', :git => "https://github.com/inapps-io/UserAcquisition.git"
+   pod 'Google-Mobile-Ads-SDK'
+   pod 'GoogleMobileAdsMediationIronSource'
+   pod 'GoogleMobileAdsMediationAdColony'
+   pod 'GoogleMobileAdsMediationAppLovin'
+   pod 'GoogleMobileAdsMediationFacebook'
+   pod 'GoogleMobileAdsMediationUnity'
+   pod 'GoogleMobileAdsMediationTapjoy'
+   pod 'GoogleMobileAdsMediationVungle'
 ```
