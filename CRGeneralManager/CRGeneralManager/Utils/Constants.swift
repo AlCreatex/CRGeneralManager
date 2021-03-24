@@ -1,0 +1,41 @@
+import UIKit
+import DeviceKit
+
+public struct Constants {
+    
+    internal struct NameUserDefaults {
+        static let storeManagerExpiryDate   = "StoreManagerExpiryDate"
+        static let isStartNowAppsFlyer      = "IsStartNowAppsFlyer"
+    }
+    
+    internal struct NameQueue {
+        static let intersititalTimeOutQueue = "com.google.interstitial.queue"
+    }
+    
+    internal struct NameAtInfoPlist {
+        static let appVersion    = "CFBundleShortVersionString"
+        static let bundleVersion = "CFBundleVersion"
+    }
+    
+    internal struct NameAtKeysPlist {
+        static let appID                = "appID"
+        static let sharedKey            = "SharedKey"
+        static let yandexKey            = "YandexKey"
+        static let facebookKey          = "FacebookKey"
+        static let appsFlyerKey         = "AppsFlyerKey"
+        static let userAcquisitionKey   = "UserAcquisitionKey"
+        static let intersititalKey      = "IntersititalKey"
+    }
+    
+    internal struct NameFile {
+        static let remoteConfig = "RemoteConfigPlist"
+    }
+    
+    internal struct TypeFile {
+        static let plist = "plist"
+    }
+    
+    public struct Interface {
+        static let sizeScale: CGFloat = Device.current.isPhone ? UIScreen.main.bounds.height / (Device.current.diagonal <= Device.iPhone8Plus.diagonal ? 736.0 : 812.0) : 1.0
+    }
+}

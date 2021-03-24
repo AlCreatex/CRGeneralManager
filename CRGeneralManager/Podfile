@@ -1,0 +1,43 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'CRGeneralManager' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for CRGeneralManager
+
+  #Basic
+  pod 'lottie-ios'
+  pod 'NVActivityIndicatorView'
+  pod 'DeviceKit'
+  
+  #Subscription and purchase
+  pod 'SwiftyStoreKit'
+  
+  #Metrics
+  pod 'Firebase/Auth'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Crashlytics'
+  pod 'Firebase/RemoteConfig'
+  
+  pod 'FBSDKCoreKit'
+  pod 'FBAudienceNetwork'
+  
+  pod 'YandexMobileMetrica'
+  pod 'AppsFlyerFramework'
+  
+  #Product
+  pod 'UserAcquisition', :git => "https://github.com/inapps-io/UserAcquisition.git"
+  
+  #Ads and Mediation
+  pod 'Google-Mobile-Ads-SDK'
+  pod 'GoogleMobileAdsMediationIronSource'
+  pod 'GoogleMobileAdsMediationAdColony'
+  pod 'GoogleMobileAdsMediationAppLovin'
+  pod 'GoogleMobileAdsMediationFacebook'
+  pod 'GoogleMobileAdsMediationUnity'
+  pod 'GoogleMobileAdsMediationTapjoy'
+  pod 'GoogleMobileAdsMediationVungle'
+
+end
