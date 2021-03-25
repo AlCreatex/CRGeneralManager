@@ -48,7 +48,7 @@ final class StoreManager: NSObject {
     public static let shared = StoreManager()
     
     //MARK: - Properties
-    fileprivate let sharedKey = GettingsKeysFromPlist.getKey(by: .sharedKey) as! String
+    fileprivate let sharedKey = GettingsKeysFromPlist.getKey(by: .sharedKey) as? String ?? ""
     
     //MARK: - Status subscriptions
     public var isActive: Bool {

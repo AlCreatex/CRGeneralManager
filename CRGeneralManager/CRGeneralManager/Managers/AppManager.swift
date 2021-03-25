@@ -5,7 +5,7 @@ import StoreKit
 import FBSDKCoreKit
 import iAd
 
-public class AppManager: NSObject {
+final class AppManager: NSObject {
 
     //MARK: - Methods
     public func configuration(application: UIApplication,
@@ -16,7 +16,7 @@ public class AppManager: NSObject {
         SearchAdsService().configuration()
         YandexService().configuration()
         
-        UserAcquisitionManager.shared.configure(withAPIKey: GettingsKeysFromPlist.getKey(by: .userAcquisitionKey) as! String,
+        UserAcquisitionManager.shared.configure(withAPIKey: GettingsKeysFromPlist.getKey(by: .userAcquisitionKey) as? String ?? "",
                                          urlRequest: userAcquisitionServer)
         UserAcquisitionManager.shared.conversionInfo.fbAnonymousId = AppEvents.anonymousID
         

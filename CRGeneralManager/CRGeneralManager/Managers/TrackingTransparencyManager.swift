@@ -13,14 +13,22 @@ final class TrackingTransparencyManager: NSObject {
     fileprivate var completion: CompletionBlock?
 
     //MARK: - Setups
-    public func configuration(startScreen: CompletionBlock? = nil) {
+    public func configuration(isStartFirebase: Bool = true, startScreen: CompletionBlock? = nil) {
 
-        let firebase = FirebaseSerivce()
-        firebase.configuration()
-        self.remoteCheck = firebase.remoteConfig.configValue(forKey: "iOSCheck").boolValue
+        self.setupFirebase(isStart: isStartFirebase)
         self.setupATT()
         
         self.completion = { startScreen?() }
+    }
+    
+    //MARK: - Firebase
+    fileprivate func setupFirebase(isStart: Bool = true) {
+        
+        if isStart {
+            let firebase = FirebaseSerivce()
+            firebase.configuration()
+            self.remoteCheck = firebase.remoteConfig.configValue(forKey: "iOSCheck").boolValue
+        }
     }
 
     //MARK: - AppsFlyer
