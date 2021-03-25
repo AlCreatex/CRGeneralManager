@@ -123,7 +123,6 @@ pod 'FBSDKCoreKit'
 pod 'FBAudienceNetwork'
 pod 'YandexMobileMetrica'
 pod 'AppsFlyerFramework'
-pod 'UserAcquisition', :git => "https://github.com/inapps-io/UserAcquisition.git"
 pod 'Google-Mobile-Ads-SDK'
 pod 'GoogleMobileAdsMediationIronSource'
 pod 'GoogleMobileAdsMediationAdColony'
