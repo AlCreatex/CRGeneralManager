@@ -82,9 +82,9 @@ public func configuration(application: UIApplication,
    SearchAdsService().configuration()
    YandexService().configuration()
         
-   UserAcquisition.shared.configure(withAPIKey: GettingsKeysFromPlist.getKey(by: .userAcquisitionKey) as! String,
-                                    urlRequest: userAcquisitionServer)
-   UserAcquisition.shared.conversionInfo.fbAnonymousId = AppEvents.anonymousID
+   UserAcquisitionManager.shared.configure(withAPIKey: GettingsKeysFromPlist.getKey(by: .userAcquisitionKey) as! String,
+                                           urlRequest: userAcquisitionServer)
+   UserAcquisitionManager.shared.conversionInfo.fbAnonymousId = AppEvents.anonymousID
         
    StoreManager.shared.configuration()
    SKAdNetwork.registerAppForAdNetworkAttribution()
