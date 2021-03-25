@@ -1,6 +1,6 @@
 PODS:
   - AdColony (4.5.0)
-  - AppLovinSDK (10.0.0)
+  - AppLovinSDK (10.0.1)
   - AppsFlyerFramework (6.2.4):
     - AppsFlyerFramework/Main (= 6.2.4)
   - AppsFlyerFramework/Main (6.2.4)
@@ -13,59 +13,59 @@ PODS:
   - FBSDKCoreKit/Basics (9.1.0)
   - FBSDKCoreKit/Core (9.1.0):
     - FBSDKCoreKit/Basics
-  - Firebase/Analytics (7.8.1):
+  - Firebase/Analytics (7.9.0):
     - Firebase/Core
-  - Firebase/Auth (7.8.1):
+  - Firebase/Auth (7.9.0):
     - Firebase/CoreOnly
-    - FirebaseAuth (~> 7.8.0)
-  - Firebase/Core (7.8.1):
+    - FirebaseAuth (~> 7.9.0)
+  - Firebase/Core (7.9.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 7.8.1)
-  - Firebase/CoreOnly (7.8.1):
-    - FirebaseCore (= 7.8.0)
-  - Firebase/Crashlytics (7.8.1):
+    - FirebaseAnalytics (~> 7.9.0)
+  - Firebase/CoreOnly (7.9.0):
+    - FirebaseCore (= 7.9.0)
+  - Firebase/Crashlytics (7.9.0):
     - Firebase/CoreOnly
-    - FirebaseCrashlytics (~> 7.8.0)
-  - Firebase/RemoteConfig (7.8.1):
+    - FirebaseCrashlytics (~> 7.9.0)
+  - Firebase/RemoteConfig (7.9.0):
     - Firebase/CoreOnly
-    - FirebaseRemoteConfig (~> 7.8.0)
-  - FirebaseABTesting (7.8.0):
+    - FirebaseRemoteConfig (~> 7.9.0)
+  - FirebaseABTesting (7.9.0):
     - FirebaseCore (~> 7.0)
-  - FirebaseAnalytics (7.8.1):
+  - FirebaseAnalytics (7.9.0):
     - FirebaseCore (~> 7.0)
     - FirebaseInstallations (~> 7.0)
-    - GoogleAppMeasurement (= 7.8.1)
+    - GoogleAppMeasurement (= 7.9.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
     - GoogleUtilities/MethodSwizzler (~> 7.0)
     - GoogleUtilities/Network (~> 7.0)
     - "GoogleUtilities/NSData+zlib (~> 7.0)"
     - nanopb (~> 2.30907.0)
-  - FirebaseAuth (7.8.0):
+  - FirebaseAuth (7.9.0):
     - FirebaseCore (~> 7.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
     - GoogleUtilities/Environment (~> 7.0)
     - GTMSessionFetcher/Core (~> 1.4)
-  - FirebaseCore (7.8.0):
+  - FirebaseCore (7.9.0):
     - FirebaseCoreDiagnostics (~> 7.4)
     - GoogleUtilities/Environment (~> 7.0)
     - GoogleUtilities/Logger (~> 7.0)
-  - FirebaseCoreDiagnostics (7.8.0):
+  - FirebaseCoreDiagnostics (7.9.0):
     - GoogleDataTransport (~> 8.0)
     - GoogleUtilities/Environment (~> 7.0)
     - GoogleUtilities/Logger (~> 7.0)
     - nanopb (~> 2.30907.0)
-  - FirebaseCrashlytics (7.8.0):
+  - FirebaseCrashlytics (7.9.0):
     - FirebaseCore (~> 7.0)
     - FirebaseInstallations (~> 7.0)
     - GoogleDataTransport (~> 8.0)
     - nanopb (~> 2.30907.0)
     - PromisesObjC (~> 1.2)
-  - FirebaseInstallations (7.8.0):
+  - FirebaseInstallations (7.9.0):
     - FirebaseCore (~> 7.0)
     - GoogleUtilities/Environment (~> 7.0)
     - GoogleUtilities/UserDefaults (~> 7.0)
     - PromisesObjC (~> 1.2)
-  - FirebaseRemoteConfig (7.8.0):
+  - FirebaseRemoteConfig (7.9.0):
     - FirebaseABTesting (~> 7.0)
     - FirebaseCore (~> 7.0)
     - FirebaseInstallations (~> 7.0)
@@ -74,7 +74,7 @@ PODS:
   - Google-Mobile-Ads-SDK (8.2.0.1):
     - GoogleAppMeasurement (~> 7.0)
     - GoogleUserMessagingPlatform (>= 1.1)
-  - GoogleAppMeasurement (7.8.1):
+  - GoogleAppMeasurement (7.9.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
     - GoogleUtilities/MethodSwizzler (~> 7.0)
     - GoogleUtilities/Network (~> 7.0)
@@ -87,18 +87,18 @@ PODS:
   - GoogleMobileAdsMediationAdColony (4.5.0.0):
     - AdColony (= 4.5.0.0)
     - Google-Mobile-Ads-SDK (>= 7.69.0)
-  - GoogleMobileAdsMediationAppLovin (10.0.0.0):
-    - AppLovinSDK (= 10.0.0)
-    - Google-Mobile-Ads-SDK (>= 8.1.0)
+  - GoogleMobileAdsMediationAppLovin (10.0.1.0):
+    - AppLovinSDK (= 10.0.1)
+    - Google-Mobile-Ads-SDK (>= 8.2.0)
   - GoogleMobileAdsMediationFacebook (6.3.0.0):
     - FBAudienceNetwork (= 6.3.0)
     - Google-Mobile-Ads-SDK (>= 8.1.0)
-  - GoogleMobileAdsMediationIronSource (7.1.2.0):
-    - Google-Mobile-Ads-SDK (>= 8.1.0)
-    - IronSourceSDK (= 7.1.2)
-  - GoogleMobileAdsMediationTapjoy (12.7.1.0):
-    - Google-Mobile-Ads-SDK (>= 7.67.0)
-    - TapjoySDK (= 12.7.1)
+  - GoogleMobileAdsMediationIronSource (7.1.3.0):
+    - Google-Mobile-Ads-SDK (>= 8.2.0)
+    - IronSourceSDK (= 7.1.3)
+  - GoogleMobileAdsMediationTapjoy (12.8.0.0):
+    - Google-Mobile-Ads-SDK (>= 8.2.0)
+    - TapjoySDK (= 12.8.0)
   - GoogleMobileAdsMediationUnity (3.6.0.0):
     - Google-Mobile-Ads-SDK (>= 7.69.0)
     - UnityAds (= 3.6.0)
@@ -126,7 +126,7 @@ PODS:
   - GoogleUtilities/UserDefaults (7.3.1):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.5.0)
-  - IronSourceSDK (7.1.2.0)
+  - IronSourceSDK (7.1.3.0)
   - lottie-ios (3.2.1)
   - nanopb (2.30907.0):
     - nanopb/decode (= 2.30907.0)
@@ -138,10 +138,8 @@ PODS:
   - NVActivityIndicatorView/Base (5.1.1)
   - PromisesObjC (1.2.12)
   - SwiftyStoreKit (0.16.1)
-  - TapjoySDK (12.7.1)
+  - TapjoySDK (12.8.0)
   - UnityAds (3.6.0)
-  - UserAcquisition (1.3.0):
-    - SwiftyStoreKit
   - VungleSDK-iOS (6.9.1)
   - YandexMobileMetrica (3.14.1):
     - YandexMobileMetrica/Static (= 3.14.1)
@@ -172,7 +170,6 @@ DEPENDENCIES:
   - lottie-ios
   - NVActivityIndicatorView
   - SwiftyStoreKit
-  - UserAcquisition (from `https://github.com/inapps-io/UserAcquisition.git`)
   - YandexMobileMetrica
 
 SPEC REPOS:
@@ -216,56 +213,46 @@ SPEC REPOS:
     - VungleSDK-iOS
     - YandexMobileMetrica
 
-EXTERNAL SOURCES:
-  UserAcquisition:
-    :git: https://github.com/inapps-io/UserAcquisition.git
-
-CHECKOUT OPTIONS:
-  UserAcquisition:
-    :commit: 7c1c46033f4ee4fcefbcf2ff04012f1adca615eb
-    :git: https://github.com/inapps-io/UserAcquisition.git
-
 SPEC CHECKSUMS:
   AdColony: e54ee1d060491410135a5a1c9b010bcb4a171dab
-  AppLovinSDK: bfacb462b86602a4c25593f87efacc6898e41edd
+  AppLovinSDK: f0c36aca5e8be14ee6c95f7646a4a120752b0f4a
   AppsFlyerFramework: f3f0e978cfb8e7dc09a3ab90da316f52cd9c56fe
   DeviceKit: 7decde449c308ac7e816e2184ded1c7c596fb885
   FBAudienceNetwork: 58b4d0f2359783e5bc9ee59f138b4fda43173ac4
   FBSDKCoreKit: a00fe2efd780c195a5e09201bf51c56106245b40
-  Firebase: d59ad4129167f9f0d2a4f6c1f0c462254b6002c8
-  FirebaseABTesting: 44acbfc9db915bca8f111ebae342da6fd4f1cc55
-  FirebaseAnalytics: 3b98b563d7d64c07900511198b4805cfd9f9f61c
-  FirebaseAuth: 667e576a716f6f9fe31687791406f61135002d47
-  FirebaseCore: 049029df3096e5c118917029be7da75ee16f3b1b
-  FirebaseCoreDiagnostics: 066f996579cf097bdad3d7dc9a918d6b9e129c50
-  FirebaseCrashlytics: d07e61d85aabc7d38a68f94ff99995f8557ea8d0
-  FirebaseInstallations: 7f7ed0e7e27fb51f57291e1876e2ddb1524126c1
-  FirebaseRemoteConfig: 0d7a7e45c23bfaa1f299c768b3c357ae3a5bc9d5
+  Firebase: d8bd6bd34b4c7ed57bfdd056c66ff5adcdde53ab
+  FirebaseABTesting: f6853447dc61fa785df777748747c845f40fa7cd
+  FirebaseAnalytics: 31b1269830dfe16687db3c60b76082c12bd6d527
+  FirebaseAuth: 20625f04fdd213995249a82375b3dab39b1c136c
+  FirebaseCore: 0798738ad1ae0fda67e17c7b9081241c431c6859
+  FirebaseCoreDiagnostics: 3d36e05da74cb8b7ce30e6594a8f201b982c725c
+  FirebaseCrashlytics: 73cfa8d24d573ed1ff648acce3900df39ca32d77
+  FirebaseInstallations: 5e777e6640fa060405cc7632447b6c5ca5af4742
+  FirebaseRemoteConfig: ad9b7af6a1308d8dd26787b1702ce9e7d609d22e
   Google-Mobile-Ads-SDK: b48fb7dc45b2e442a217dd96875586fda7d5e553
-  GoogleAppMeasurement: 50a254ee92c1b94fbe2abea7e3da35e4c6dedce0
+  GoogleAppMeasurement: 120eec8803fe65a4a7475fb3d3d59a61d0e1a866
   GoogleDataTransport: b006084b73915a42c28a3466961a4edda3065da6
   GoogleMobileAdsMediationAdColony: dd78bace04978a0714651764e19da96e1749a206
-  GoogleMobileAdsMediationAppLovin: cbf454047faf08f600af07bb41af1e00d01481ab
+  GoogleMobileAdsMediationAppLovin: c983f81f5e24b0fcc6500429af739d65070ab2af
   GoogleMobileAdsMediationFacebook: 25ffa75e08e11bb5dd2fad4e46da0ecdf247c30b
-  GoogleMobileAdsMediationIronSource: 714b50e5631c6d2003e9498c197197e5e9e2f868
-  GoogleMobileAdsMediationTapjoy: 0baadafe9157d05b6b2ed7fec6c4bfc2c2ba8f17
+  GoogleMobileAdsMediationIronSource: 8beaeab18c9f552408f7f52ec5487115b4e3a5ea
+  GoogleMobileAdsMediationTapjoy: 72b4f9c437ebd1d987c989cb16305bf4013c0e9f
   GoogleMobileAdsMediationUnity: 44d220b24d699fa4873bb16a47541fadd36b24a0
   GoogleMobileAdsMediationVungle: 881b382b4f847895d6c01667a623305bfe496213
   GoogleUserMessagingPlatform: ab890ce5f6620f293a21b6bdd82e416a2c73aeca
   GoogleUtilities: e1d9ed4e544fc32a93e00e721400cbc3f377200d
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
-  IronSourceSDK: 71bfad4e69db3b100ce85a80515aedb919a1e1c4
+  IronSourceSDK: 4ea386af385ba27ca5efb75a68c537dd4f1f8ede
   lottie-ios: 106e92eaf11fbed0a76590b4cdb9b5ec26123ff7
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
-  TapjoySDK: 27e4116ba377dcbe064743ca3ec3a8d70ccee2bb
+  TapjoySDK: eee3e1c96945a75028cc7572993a645a5f10adbe
   UnityAds: 3f88cf3d3b11991de1025fcf0e3109fd86035fba
-  UserAcquisition: 836dc880ee677d8a7f4d24a908fa1950d836ee92
   VungleSDK-iOS: 09abfadbcc04e0748ce33c6bd02282e9961125ba
   YandexMobileMetrica: 072fc59d216c8824d83d1d54bdc6e96d9cfcc59c
 
-PODFILE CHECKSUM: 36a95c8c898a514e94043b758ae0a73ec8e17c66
+PODFILE CHECKSUM: f4f9eb6bb7174595a4c5f382be6e01ba01c7df27
 
 COCOAPODS: 1.10.1

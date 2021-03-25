@@ -1,5 +1,4 @@
 import iAd
-import UserAcquisition
 
 final class SearchAdsService: NSObject {
     
@@ -12,7 +11,7 @@ final class SearchAdsService: NSObject {
                 return
             }
             
-            UserAcquisition.shared.conversionInfo.setSearchAds(attributed)
+            UserAcquisitionManager.shared.conversionInfo.setSearchAds(attributed)
         }
     }
 }

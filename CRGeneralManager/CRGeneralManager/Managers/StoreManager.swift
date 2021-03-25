@@ -1,5 +1,4 @@
 import SwiftyStoreKit
-import UserAcquisition
 
 final class StoreManager: NSObject {
     
@@ -129,7 +128,7 @@ final class StoreManager: NSObject {
                 self.verifySubscription()
                 self.finishPurchaseTransaction(purchase: purchase)
                 
-                UserAcquisition.shared.logPurchase(of: purchase.product)
+                UserAcquisitionManager.shared.logPurchase(of: purchase.product)
                 AnalyticsManager.trackPurchase(eventName: .init(rawValue: "Subscription_Done"),
                                                price: purchase.product.price.doubleValue,
                                                currency: purchase.product.priceLocale.currencyCode)

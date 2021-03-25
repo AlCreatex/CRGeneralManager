@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		845B0699260B79E6008A5150 /* CRGeneralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 845B0697260B79E6008A5150 /* CRGeneralManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84933F5F260C7EA6000D5493 /* UserAcquisitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84933F5E260C7EA6000D5493 /* UserAcquisitionManager.swift */; };
 		84C67C6A260B7A6700D43580 /* SearchAdsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C67C5A260B7A6700D43580 /* SearchAdsService.swift */; };
 		84C67C6B260B7A6700D43580 /* AppsFlyerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C67C5B260B7A6700D43580 /* AppsFlyerService.swift */; };
 		84C67C6C260B7A6700D43580 /* YandexService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C67C5C260B7A6700D43580 /* YandexService.swift */; };
@@ -31,6 +32,7 @@
 		845B0694260B79E6008A5150 /* CRGeneralManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CRGeneralManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		845B0697260B79E6008A5150 /* CRGeneralManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRGeneralManager.h; sourceTree = "<group>"; };
 		845B0698260B79E6008A5150 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84933F5E260C7EA6000D5493 /* UserAcquisitionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAcquisitionManager.swift; sourceTree = "<group>"; };
 		84C67C5A260B7A6700D43580 /* SearchAdsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAdsService.swift; sourceTree = "<group>"; };
 		84C67C5B260B7A6700D43580 /* AppsFlyerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsFlyerService.swift; sourceTree = "<group>"; };
 		84C67C5C260B7A6700D43580 /* YandexService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YandexService.swift; sourceTree = "<group>"; };
@@ -105,11 +107,12 @@
 		84C67C5F260B7A6700D43580 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				84C67C64260B7A6700D43580 /* AnalyticsManager.swift */,
+				84C67C63260B7A6700D43580 /* StoreManager.swift */,
+				84933F5E260C7EA6000D5493 /* UserAcquisitionManager.swift */,
+				84C67C62260B7A6700D43580 /* GoogleAdsManager.swift */,
 				84C67C60260B7A6700D43580 /* TrackingTransparencyManager.swift */,
 				84C67C61260B7A6700D43580 /* AppManager.swift */,
-				84C67C62260B7A6700D43580 /* GoogleAdsManager.swift */,
-				84C67C63260B7A6700D43580 /* StoreManager.swift */,
-				84C67C64260B7A6700D43580 /* AnalyticsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				84C67C75260B7A6700D43580 /* GettingKeysFromPlist.swift in Sources */,
 				84C67C6C260B7A6700D43580 /* YandexService.swift in Sources */,
 				84C67C72260B7A6700D43580 /* StoreManager.swift in Sources */,
+				84933F5F260C7EA6000D5493 /* UserAcquisitionManager.swift in Sources */,
 				84C67C6D260B7A6700D43580 /* FirebaseService.swift in Sources */,
 				84C67C76260B7A6700D43580 /* Typealias.swift in Sources */,
 				84C67C77260B7A6700D43580 /* UserDefaults.swift in Sources */,

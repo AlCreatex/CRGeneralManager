@@ -1,5 +1,4 @@
 import AppsFlyerLib
-import UserAcquisition
 
 final class AppsFlyerService: NSObject {
     
@@ -31,8 +30,8 @@ extension AppsFlyerService: AppsFlyerLibDelegate {
 
             self.additionalCodeAtAnswerAppsFlyer?(data)
 
-            UserAcquisition.shared.conversionInfo.setAppsFlyerData(data)
-            UserAcquisition.shared.conversionInfo.appsFlyerId = AppsFlyerLib.shared().getAppsFlyerUID()
+            UserAcquisitionManager.shared.conversionInfo.setAppsFlyerData(data)
+            UserAcquisitionManager.shared.conversionInfo.appsFlyerId = AppsFlyerLib.shared().getAppsFlyerUID()
         } else {
             
             AnalyticsManager.trackWith(eventName: .init(rawValue: "AppsFlyer_ErrorData"), parameters: conversionInfo)
