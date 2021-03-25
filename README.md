@@ -100,7 +100,7 @@ TrackingTransparencyManager().configuration(startScreen: {
 })
 ```
 
-2) Для запуска первого экрана, вы описать функцию, а после вызывать ее в блоке выше:
+2) Для запуска первого экрана, вы должны описать функцию, а после вызывать ее в блоке выше:
 
 ```swift
 internal func startScreen() {
