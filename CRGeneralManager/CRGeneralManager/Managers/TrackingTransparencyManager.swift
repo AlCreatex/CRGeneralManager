@@ -3,7 +3,7 @@ import AppTrackingTransparency
 import AdSupport
 import FBSDKCoreKit.FBSDKSettings
 import AppsFlyerLib
-import Firebase
+import FirebaseCore
 import FirebaseRemoteConfig
 
 final class TrackingTransparencyManager: NSObject {
