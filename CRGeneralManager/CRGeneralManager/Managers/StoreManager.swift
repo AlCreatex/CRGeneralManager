@@ -1,5 +1,4 @@
 import SwiftyStoreKit
-import UserAcquisition
 
 final class StoreManager: NSObject {
     

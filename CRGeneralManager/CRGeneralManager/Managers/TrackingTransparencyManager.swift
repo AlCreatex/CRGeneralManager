@@ -5,7 +5,6 @@ import FBSDKCoreKit.FBSDKSettings
 import AppsFlyerLib
 import Firebase
 import FirebaseRemoteConfig
-import UserAcquisition
 
 final class TrackingTransparencyManager: NSObject {
 

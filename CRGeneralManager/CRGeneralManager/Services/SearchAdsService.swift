@@ -1,5 +1,4 @@
 import iAd
-import UserAcquisition
 
 final class SearchAdsService: NSObject {
     

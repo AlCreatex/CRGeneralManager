@@ -8,7 +8,7 @@ s.summary = "CRGeneralManager"
 s.requires_arc = true
 
 # 2
-s.version = "0.0.1"
+s.version = "0.0.2"
 
 # 3
 s.license = { :type => "MIT", :file => "LICENSE" }
@@ -37,7 +37,6 @@ s.dependency 'FBSDKCoreKit'
 s.dependency 'FBAudienceNetwork'
 s.dependency 'YandexMobileMetrica'
 s.dependency 'AppsFlyerFramework'
-s.dependency 'UserAcquisition', :git => "https://github.com/inapps-io/UserAcquisition.git"
 s.dependency 'Google-Mobile-Ads-SDK'
 s.dependency 'GoogleMobileAdsMediationIronSource'
 s.dependency 'GoogleMobileAdsMediationAdColony'

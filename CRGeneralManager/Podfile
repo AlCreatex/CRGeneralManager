@@ -27,9 +27,6 @@ target 'CRGeneralManager' do
   pod 'YandexMobileMetrica'
   pod 'AppsFlyerFramework'
   
-  #Product
-  pod 'UserAcquisition', :git => "https://github.com/inapps-io/UserAcquisition.git"
-  
   #Ads and Mediation
   pod 'Google-Mobile-Ads-SDK'
   pod 'GoogleMobileAdsMediationIronSource'

@@ -1,5 +1,4 @@
 import AppsFlyerLib
-import UserAcquisition
 
 final class AppsFlyerService: NSObject {
     

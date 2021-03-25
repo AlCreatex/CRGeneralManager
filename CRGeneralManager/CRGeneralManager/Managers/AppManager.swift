@@ -1,6 +1,5 @@
 import Foundation
 import YandexMobileMetrica
-import UserAcquisition
 import GoogleMobileAds
 import StoreKit
 import FBSDKCoreKit
@@ -11,7 +10,7 @@ public class AppManager: NSObject {
     //MARK: - Methods
     public func configuration(application: UIApplication,
                               launchOptions: [UIApplication.LaunchOptionsKey: Any]?,
-                              userAcquisitionServer: UserAcquisition.Urls = .inapps) {
+                              userAcquisitionServer: UserAcquisition.Url = .inapps) {
         
         FacebookService().configuration(launchOptions: launchOptions)
         SearchAdsService().configuration()
