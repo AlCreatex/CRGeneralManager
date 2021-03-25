@@ -6,7 +6,7 @@ import AppsFlyerLib
 import FirebaseCore
 import FirebaseRemoteConfig
 
-final class TrackingTransparencyManager: NSObject {
+open class TrackingTransparencyManager: NSObject {
 
     //MARK: - Properties
     fileprivate var remoteCheck: Bool = false

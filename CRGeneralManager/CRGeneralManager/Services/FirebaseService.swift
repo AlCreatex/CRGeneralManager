@@ -1,7 +1,7 @@
 import FirebaseCore
 import FirebaseRemoteConfig
 
-final class FirebaseSerivce: NSObject {
+open class FirebaseSerivce: NSObject {
     
     //MARK: - Properties
     public var remoteConfig: RemoteConfig!

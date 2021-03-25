@@ -1,4 +1,4 @@
 import Foundation
 
-typealias CompletionBlock = ()->()
-typealias CompletionBlockAppsFlyer = ([String: Any])->()
+public typealias CompletionBlock = ()->()
+public typealias CompletionBlockAppsFlyer = ([String: Any])->()

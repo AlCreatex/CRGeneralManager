@@ -1,6 +1,6 @@
 import YandexMobileMetrica
 
-final class YandexService: NSObject {
+open class YandexService: NSObject {
     
     //MARK: - Configuration
     public func configuration() {

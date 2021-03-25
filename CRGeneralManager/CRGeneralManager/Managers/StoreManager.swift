@@ -1,6 +1,6 @@
 import SwiftyStoreKit
 
-final class StoreManager: NSObject {
+open class StoreManager: NSObject {
     
     //MARK: - Enums
     public enum ProductsIds {

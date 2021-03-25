@@ -5,7 +5,7 @@ import StoreKit
 import FBSDKCoreKit
 import iAd
 
-final class AppManager: NSObject {
+open class AppManager: NSObject {
 
     //MARK: - Methods
     public func configuration(application: UIApplication,

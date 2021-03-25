@@ -1,6 +1,6 @@
 import AppsFlyerLib
 
-final class AppsFlyerService: NSObject {
+open class AppsFlyerService: NSObject {
     
     //MARK: - Properties
     public var additionalCodeAtAnswerAppsFlyer: CompletionBlockAppsFlyer?
@@ -18,7 +18,7 @@ final class AppsFlyerService: NSObject {
 //MARK: - AppsFlyerLibDelegate
 extension AppsFlyerService: AppsFlyerLibDelegate {
 
-    func onConversionDataSuccess(_ conversionInfo: [AnyHashable : Any]) {
+    public func onConversionDataSuccess(_ conversionInfo: [AnyHashable : Any]) {
 
         if let data = conversionInfo as? [String: Any] {
 
@@ -38,7 +38,7 @@ extension AppsFlyerService: AppsFlyerLibDelegate {
         }
     }
 
-    func onConversionDataFail(_ error: Error) { }
+    public func onConversionDataFail(_ error: Error) { }
 
-    func onConversionDataReceived(_ installData: [AnyHashable : Any]!) { }
+    public func onConversionDataReceived(_ installData: [AnyHashable : Any]!) { }
 }

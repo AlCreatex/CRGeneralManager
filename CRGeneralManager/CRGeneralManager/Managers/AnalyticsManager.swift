@@ -4,7 +4,7 @@ import FBSDKCoreKit
 import FirebaseAnalytics
 import AppsFlyerLib
 
-final class AnalyticsManager: NSObject {
+open class AnalyticsManager: NSObject {
     
     public struct EventName {
         

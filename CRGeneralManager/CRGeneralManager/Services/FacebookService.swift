@@ -1,6 +1,6 @@
 import FBSDKCoreKit
 
-final class FacebookService: NSObject {
+open class FacebookService: NSObject {
     
     //MARK: - Configuration
     public func configuration(launchOptions: [UIApplication.LaunchOptionsKey: Any]?,

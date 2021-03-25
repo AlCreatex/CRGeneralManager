@@ -1,6 +1,6 @@
 import iAd
 
-final class SearchAdsService: NSObject {
+open class SearchAdsService: NSObject {
     
     //MARK: - Configuration
     public func configuration() {

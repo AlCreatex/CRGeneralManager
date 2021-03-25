@@ -1,7 +1,7 @@
 import Foundation
 import GoogleMobileAds
 
-final class GoogleAdsManager: NSObject {
+open class GoogleAdsManager: NSObject {
     
     //MARK: - Singleton
     public static let shared = GoogleAdsManager()
@@ -86,13 +86,13 @@ final class GoogleAdsManager: NSObject {
 //MARK: - GADFullScreenContentDelegate
 extension GoogleAdsManager: GADFullScreenContentDelegate {
     
-    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+    public func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
         print("Ad did fail to present full screen content.")
         self.reloadLoadRequest()
         self.completionInterstitial?()
     }
     
-    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    public func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
         print("Ad did dismiss full screen content.")
         self.reloadLoadRequest()
         self.completionInterstitial?()
