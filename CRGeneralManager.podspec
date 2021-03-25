@@ -8,7 +8,7 @@ s.summary = "CRGeneralManager"
 s.requires_arc = true
 
 # 2
-s.version = "0.0.3"
+s.version = "0.0.4"
 
 # 3
 s.license = { :type => "MIT", :file => "LICENSE" }
@@ -24,7 +24,7 @@ s.source = { :git => "https://github.com/AlCreatex/CRGeneralManager.git",
              :tag => "#{s.version}" }
 
 # 7
-s.framework = "UIKit"
+s.static_framework = true
 s.dependency 'lottie-ios'
 s.dependency 'NVActivityIndicatorView'
 s.dependency 'DeviceKit'
