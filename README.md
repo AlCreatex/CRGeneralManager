@@ -96,7 +96,7 @@ public func configuration(application: UIApplication,
 
 ```swift
 TrackingTransparencyManager().configuration(isStartFirebase: "Флаг на запуск Firebase", 
-					    isStartRemoteConfig: "Флаг на запук FirebaseRemoteConfig") {
+					    isStartRemoteConfig: "Флаг на запуcк FirebaseRemoteConfig") {
    "Тут устанавливаете запуск первого экрана"    
 }
 ```
