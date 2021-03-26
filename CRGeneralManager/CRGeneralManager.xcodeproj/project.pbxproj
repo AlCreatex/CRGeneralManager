@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		845B0699260B79E6008A5150 /* CRGeneralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 845B0697260B79E6008A5150 /* CRGeneralManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84933F5F260C7EA6000D5493 /* UserAcquisitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84933F5E260C7EA6000D5493 /* UserAcquisitionManager.swift */; };
+		84A349D3260DF35E00C61957 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 84A349D2260DF35E00C61957 /* swiftgen.yml */; };
 		84C67C6A260B7A6700D43580 /* SearchAdsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C67C5A260B7A6700D43580 /* SearchAdsService.swift */; };
 		84C67C6B260B7A6700D43580 /* AppsFlyerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C67C5B260B7A6700D43580 /* AppsFlyerService.swift */; };
 		84C67C6C260B7A6700D43580 /* YandexService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C67C5C260B7A6700D43580 /* YandexService.swift */; };
@@ -33,6 +34,7 @@
 		845B0697260B79E6008A5150 /* CRGeneralManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRGeneralManager.h; sourceTree = "<group>"; };
 		845B0698260B79E6008A5150 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84933F5E260C7EA6000D5493 /* UserAcquisitionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAcquisitionManager.swift; sourceTree = "<group>"; };
+		84A349D2260DF35E00C61957 /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		84C67C5A260B7A6700D43580 /* SearchAdsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAdsService.swift; sourceTree = "<group>"; };
 		84C67C5B260B7A6700D43580 /* AppsFlyerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsFlyerService.swift; sourceTree = "<group>"; };
 		84C67C5C260B7A6700D43580 /* YandexService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YandexService.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 		845B068A260B79E6008A5150 = {
 			isa = PBXGroup;
 			children = (
+				84A349D2260DF35E00C61957 /* swiftgen.yml */,
 				845B0696260B79E6008A5150 /* CRGeneralManager */,
 				845B0695260B79E6008A5150 /* Products */,
 				B686AD585BF239D2694F1A96 /* Pods */,
@@ -83,6 +86,7 @@
 		845B0696260B79E6008A5150 /* CRGeneralManager */ = {
 			isa = PBXGroup;
 			children = (
+				84A349D5260DF39F00C61957 /* SwiftGen */,
 				84C67C65260B7A6700D43580 /* Utils */,
 				84C67C59260B7A6700D43580 /* Services */,
 				84C67C5F260B7A6700D43580 /* Managers */,
@@ -90,6 +94,13 @@
 				845B0698260B79E6008A5150 /* Info.plist */,
 			);
 			path = CRGeneralManager;
+			sourceTree = "<group>";
+		};
+		84A349D5260DF39F00C61957 /* SwiftGen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SwiftGen;
 			sourceTree = "<group>";
 		};
 		84C67C59260B7A6700D43580 /* Services */ = {
@@ -215,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A349D3260DF35E00C61957 /* swiftgen.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,7 +438,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.8;
+				MARKETING_VERSION = 0.0.10;
 				PRODUCT_BUNDLE_IDENTIFIER = admin.CRGeneralManager;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -451,7 +463,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.8;
+				MARKETING_VERSION = 0.0.10;
 				PRODUCT_BUNDLE_IDENTIFIER = admin.CRGeneralManager;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

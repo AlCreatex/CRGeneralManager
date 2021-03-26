@@ -8,6 +8,7 @@ target 'CRGeneralManager' do
   # Pods for CRGeneralManager
 
   #Basic
+  pod 'SwiftGen'
   pod 'lottie-ios'
   pod 'NVActivityIndicatorView'
   pod 'DeviceKit'
