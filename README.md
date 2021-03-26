@@ -1,7 +1,7 @@
 # Usage
 
 ## CocoaPods Install
-Add **pod 'CRGeneralManager', :git => "https://github.com/AlCreatex/CRGeneralManager.git"** to your Podfile. "CRGeneralManager" is the name of the library.
+Add ```pod 'CRGeneralManager', :git => "https://github.com/AlCreatex/CRGeneralManager.git"``` to your Podfile. "CRGeneralManager" is the name of the library.
 
 ## GoogleAdsManager
 1) При первом запуске приложения, вам нужно вызвать, **НО ЕСЛИ ВЫ ЗАПУСКАЕТЕ AppManager, ВЫ МОЖЕТЕ ПРОПУСТИТЬ ЭТОТ ПУНКТ**:
