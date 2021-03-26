@@ -21,10 +21,10 @@ final class GettingsKeysFromPlist: NSObject {
     }
     
     //MARK: - Get key from plist
-    static public func getKey(by value: Keys) -> Any? {
+    static public func getKey(from file: String, by value: Keys) -> Any? {
         
-        guard let path = Bundle.main.path(forResource: Constants.NameFile.remoteConfig, ofType: Constants.TypeFile.plist) else {
-            print("Failed to get path to RemoteConfigPlist")
+        guard let path = Bundle.main.path(forResource: file, ofType: Constants.TypeFile.plist) else {
+            print("Failed to get path to \(file)")
             return nil
         }
         
@@ -32,8 +32,23 @@ final class GettingsKeysFromPlist: NSObject {
         if let value = keys?[value.rawValue] {
             return value
         } else {
-            print("Failed to get (\(value.rawValue)) from RemoteConfigPlist")
+            print("Failed to get (\(value.rawValue)) from \(file)")
             return nil
         }
+    }
+    
+    static public func getAllKeys(from file: String) -> NSDictionary? {
+        
+        guard let path = Bundle.main.path(forResource: file, ofType: Constants.TypeFile.plist) else {
+            print("Failed to get path to \(file)")
+            return nil
+        }
+        
+        let keys = NSDictionary(contentsOfFile: path)
+        guard let verifiedKeys = keys else {
+            return nil
+        }
+        
+        return verifiedKeys
     }
 }

@@ -9,7 +9,8 @@ open class FacebookService: NSObject {
         
         ApplicationDelegate.initializeSDK(launchOptions)
         AppEvents.activateApp()
-        FBSDKCoreKit.Settings.appID = GettingsKeysFromPlist.getKey(by: .facebookKey) as? String
+        FBSDKCoreKit.Settings.appID = GettingsKeysFromPlist.getKey(from: Constants.NameFile.remoteConfig,
+                                                                   by: .facebookKey) as? String
         FBSDKCoreKit.Settings.isAutoLogAppEventsEnabled = autoLogEventsEnabled
         FBSDKCoreKit.Settings.isAdvertiserIDCollectionEnabled = advertiserIDCollectionEnabled
     }

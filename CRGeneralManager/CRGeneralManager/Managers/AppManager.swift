@@ -15,7 +15,8 @@ open class AppManager: NSObject {
         SearchAdsService().configuration()
         YandexService().configuration()
         
-        UserAcquisitionManager.shared.configure(withAPIKey: GettingsKeysFromPlist.getKey(by: .userAcquisitionKey) as? String ?? "",
+        UserAcquisitionManager.shared.configure(withAPIKey: GettingsKeysFromPlist.getKey(from: Constants.NameFile.remoteConfig,
+                                                                                         by: .userAcquisitionKey) as? String ?? "",
                                          urlRequest: userAcquisitionServer)
         UserAcquisitionManager.shared.conversionInfo.fbAnonymousId = AppEvents.anonymousID
         

@@ -1,41 +1,7 @@
 import SwiftyStoreKit
 
 open class StoreManager: NSObject {
-    
-    //MARK: - Enums
-    public enum ProductsIds {
-        case year1, year2, year3,
-             month1, month2, month3,
-             week1, week2, week3
-        
-        static let identifiers: Set<String> = [year1.identifier, year2.identifier, year3.identifier,
-                                               month1.identifier, month2.identifier, month3.identifier,
-                                               week1.identifier, week2.identifier, week3.identifier]
-        
-        var identifier: String {
-            switch self {
-            case .year1:
-                return GettingsKeysFromPlist.getKey(by: .init(rawValue: "year1")) as? String ?? ""
-            case .year2:
-                return GettingsKeysFromPlist.getKey(by: .init(rawValue: "year2")) as? String ?? ""
-            case .year3:
-                return GettingsKeysFromPlist.getKey(by: .init(rawValue: "year3")) as? String ?? ""
-            case .month1:
-                return GettingsKeysFromPlist.getKey(by: .init(rawValue: "month1")) as? String ?? ""
-            case .month2:
-                return GettingsKeysFromPlist.getKey(by: .init(rawValue: "month2")) as? String ?? ""
-            case .month3:
-                return GettingsKeysFromPlist.getKey(by: .init(rawValue: "month3")) as? String ?? ""
-            case .week1:
-                return GettingsKeysFromPlist.getKey(by: .init(rawValue: "week1")) as? String ?? ""
-            case .week2:
-                return GettingsKeysFromPlist.getKey(by: .init(rawValue: "week2")) as? String ?? ""
-            case .week3:
-                return GettingsKeysFromPlist.getKey(by: .init(rawValue: "week3")) as? String ?? ""
-            }
-        }
-    }
-    
+
     public enum PurchaseState {
         case successful, failed, cancelled
     }
@@ -48,7 +14,9 @@ open class StoreManager: NSObject {
     public static let shared = StoreManager()
     
     //MARK: - Properties
-    fileprivate let sharedKey = GettingsKeysFromPlist.getKey(by: .sharedKey) as? String ?? ""
+    fileprivate var products = Set<String>()
+    fileprivate let sharedKey = GettingsKeysFromPlist.getKey(from: Constants.NameFile.remoteConfig,
+                                                             by: .sharedKey) as? String ?? ""
     
     //MARK: - Status subscriptions
     public var isActive: Bool {
@@ -65,8 +33,19 @@ open class StoreManager: NSObject {
     //MARK: - Configuration
     public func configuration() {
         
+        self.getBundlesFromProductPlist()
         self.completionAllTransaction()
         self.verifySubscription()
+    }
+    
+    //MARK: - Get bundles from plist
+    fileprivate func getBundlesFromProductPlist() {
+        
+        if let products = GettingsKeysFromPlist.getAllKeys(from: Constants.NameFile.product) {
+            products.allValues.forEach({ (product) in
+                self.products.insert(product as! String)
+            })
+        }
     }
     
     //MARK: - Completion all transaction and start this method from AppDelegate
@@ -93,20 +72,20 @@ open class StoreManager: NSObject {
             switch result {
             case .success(receipt: let receipt):
                 
-                let purchaseResult = SwiftyStoreKit.verifySubscriptions(ofType: .autoRenewable, productIds: ProductsIds.identifiers, inReceipt: receipt)
+                let purchaseResult = SwiftyStoreKit.verifySubscriptions(ofType: .autoRenewable, productIds: self.products, inReceipt: receipt)
                 switch purchaseResult {
                 case .purchased(expiryDate: let expiryDate, items: _):
                     
-                    print("\(ProductsIds.identifiers) is valid until \(expiryDate)")
+                    print("Product is valid until \(expiryDate)")
                     UserDefaultsProperties.expiryDate = expiryDate
                     completion?(true)
                 case .expired(expiryDate: let expiryDate, items: _):
                     
-                    print("\(ProductsIds.identifiers) is expired since \(expiryDate)")
+                    print("Product is expired since \(expiryDate)")
                     completion?(false)
                 case .notPurchased:
                     
-                    print("The user has never purchased \(ProductsIds.identifiers)")
+                    print("The user has never purchased product")
                     completion?(false)
                 }
                 
@@ -119,9 +98,14 @@ open class StoreManager: NSObject {
     }
     
     //MARK: - Purchase
-    public func purchase(product: ProductsIds, completion: @escaping (_ result: PurchaseState) -> ()) {
+    public func purchase(product: String, completion: @escaping (_ result: PurchaseState) -> ()) {
         
-        SwiftyStoreKit.purchaseProduct(product.identifier, simulatesAskToBuyInSandbox: false) { (result) in
+        guard let product = GettingsKeysFromPlist.getKey(from: Constants.NameFile.product,
+                                                         by: .init(rawValue: product)) as? String else {
+            return
+        }
+        
+        SwiftyStoreKit.purchaseProduct(product, simulatesAskToBuyInSandbox: false) { (result) in
             switch result {
             case .success(purchase: let purchase):
                 
@@ -151,7 +135,7 @@ open class StoreManager: NSObject {
     //MARK: - Rectrive Info by products
     public func rectriveInfo() {
         
-        SwiftyStoreKit.retrieveProductsInfo(ProductsIds.identifiers) { (result) in
+        SwiftyStoreKit.retrieveProductsInfo(self.products) { (result) in
             if let product = result.retrievedProducts.first {
                 
                 print("ProductIdentifier: \(product.productIdentifier), price: \(product.localizedPrice!)")

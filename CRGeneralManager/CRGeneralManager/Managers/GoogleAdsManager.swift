@@ -30,7 +30,8 @@ open class GoogleAdsManager: NSObject {
     //MARK: - Get keys from plist
     fileprivate func getKeysFromPlist() {
         
-        self.interstitialKey = GettingsKeysFromPlist.getKey(by: .interstitialKey) as? String
+        self.interstitialKey = GettingsKeysFromPlist.getKey(from: Constants.NameFile.remoteConfig,
+                                                            by: .interstitialKey) as? String
     }
     
     //MARK: - Interstitial
