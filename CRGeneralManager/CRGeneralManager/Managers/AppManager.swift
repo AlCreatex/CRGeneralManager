@@ -1,6 +1,5 @@
 import Foundation
 import YandexMobileMetrica
-import GoogleMobileAds
 import StoreKit
 import FBSDKCoreKit
 import iAd
@@ -21,6 +20,7 @@ open class AppManager: NSObject {
         UserAcquisitionManager.shared.conversionInfo.fbAnonymousId = AppEvents.anonymousID
         
         StoreManager.shared.configuration()
+        GoogleAdsManager.shared.configuration()
         SKAdNetwork.registerAppForAdNetworkAttribution()
     }
 }

@@ -7,13 +7,15 @@ open class FirebaseSerivce: NSObject {
     public var remoteConfig: RemoteConfig!
     
     //MARK: - Configuration
-    public func configuration(isStartRemoteConfig: Bool = true) {
+    public func configuration(isStartFirebase: Bool = true, isStartRemoteConfig: Bool = true) {
         
-        FirebaseApp.configure()
-        
-        if isStartRemoteConfig {
-            self.setupRemoteConfig()
-            self.fetchRemoteConfig()
+        if isStartFirebase {
+            FirebaseApp.configure()
+            
+            if isStartRemoteConfig {
+                self.setupRemoteConfig()
+                self.fetchRemoteConfig()
+            }
         }
     }
     

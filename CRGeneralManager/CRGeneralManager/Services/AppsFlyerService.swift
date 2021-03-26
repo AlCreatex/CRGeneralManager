@@ -9,8 +9,8 @@ open class AppsFlyerService: NSObject {
     public func configuration() {
         
         AppsFlyerLib.shared().delegate = self
-        AppsFlyerLib.shared().appsFlyerDevKey = GettingsKeysFromPlist.getKey(by: .appsFlyerKey) as! String
-        AppsFlyerLib.shared().appleAppID = GettingsKeysFromPlist.getKey(by: .appID) as! String
+        AppsFlyerLib.shared().appsFlyerDevKey = GettingsKeysFromPlist.getKey(by: .appsFlyerKey) as? String ?? ""
+        AppsFlyerLib.shared().appleAppID = GettingsKeysFromPlist.getKey(by: .appID) as? String ?? ""
         AppsFlyerLib.shared().start()
     }
 }

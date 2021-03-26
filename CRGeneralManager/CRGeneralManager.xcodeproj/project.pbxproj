@@ -83,9 +83,9 @@
 		845B0696260B79E6008A5150 /* CRGeneralManager */ = {
 			isa = PBXGroup;
 			children = (
-				84C67C5F260B7A6700D43580 /* Managers */,
-				84C67C59260B7A6700D43580 /* Services */,
 				84C67C65260B7A6700D43580 /* Utils */,
+				84C67C59260B7A6700D43580 /* Services */,
+				84C67C5F260B7A6700D43580 /* Managers */,
 				845B0697260B79E6008A5150 /* CRGeneralManager.h */,
 				845B0698260B79E6008A5150 /* Info.plist */,
 			);

@@ -14,7 +14,7 @@ open class GoogleAdsManager: NSObject {
                                                       target: nil)
     fileprivate var workItem: DispatchWorkItem?
     
-    fileprivate var timeReloadRequest: Double = 30.0
+    fileprivate var timeReloadRequest: Double = 60.0
     fileprivate var completionInterstitial: CompletionBlock?
     
     fileprivate var interstitialKey: String?

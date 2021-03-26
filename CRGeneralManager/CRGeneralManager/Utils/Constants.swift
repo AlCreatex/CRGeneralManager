@@ -18,7 +18,7 @@ public struct Constants {
     }
     
     internal struct NameAtKeysPlist {
-        static let appID                = "appID"
+        static let appID                = "AppID"
         static let sharedKey            = "SharedKey"
         static let yandexKey            = "YandexKey"
         static let facebookKey          = "FacebookKey"

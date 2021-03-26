@@ -38,7 +38,7 @@ open class AnalyticsManager: NSObject {
         AppsFlyerLib.shared().logEvent(eventName.rawValue,
                                        withValues: newParameters)
         
-        print("Send event with Name: \(eventName.rawValue), parameters: \(newParameters)")
+        print("Send event with Name: \(eventName.rawValue), with parameters: \(newParameters)")
     }
 
     //MARK: - Purchase Events

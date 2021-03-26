@@ -9,26 +9,24 @@ import FirebaseRemoteConfig
 open class TrackingTransparencyManager: NSObject {
 
     //MARK: - Properties
-    fileprivate var remoteCheck: Bool = false
     fileprivate var completion: CompletionBlock?
 
     //MARK: - Setups
-    public func configuration(isStartFirebase: Bool = true, startScreen: CompletionBlock? = nil) {
+    public func configuration(isStartFirebase: Bool = true,
+                              isStartRemoteConfig: Bool = true,
+                              startScreen: CompletionBlock? = nil) {
 
-        self.setupFirebase(isStart: isStartFirebase)
+        self.setupFirebase(isStartFirebase: isStartFirebase, isStartRemoteConfig: isStartRemoteConfig)
         self.setupATT()
         
         self.completion = { startScreen?() }
     }
     
     //MARK: - Firebase
-    fileprivate func setupFirebase(isStart: Bool = true) {
+    fileprivate func setupFirebase(isStartFirebase: Bool, isStartRemoteConfig: Bool) {
         
-        if isStart {
-            let firebase = FirebaseSerivce()
-            firebase.configuration()
-            self.remoteCheck = firebase.remoteConfig.configValue(forKey: "iOSCheck").boolValue
-        }
+        let firebase = FirebaseSerivce()
+        firebase.configuration(isStartFirebase: isStartFirebase, isStartRemoteConfig: isStartRemoteConfig)
     }
 
     //MARK: - AppsFlyer
@@ -39,7 +37,7 @@ open class TrackingTransparencyManager: NSObject {
         appsFlyer.additionalCodeAtAnswerAppsFlyer = { [weak self] (data) in
             guard let self = self else { return }
             
-            if data["af_status"] as! String == "Organic" && self.remoteCheck {
+            if data["af_status"] as! String == "Organic" && UserDefaultsProperties.iOSCheck {
                 self.setupAlertATT()
             }
         }
@@ -49,9 +47,9 @@ open class TrackingTransparencyManager: NSObject {
     fileprivate func setupATT() {
 
         let idfa = ASIdentifierManager.shared().advertisingIdentifier.description
-        print(idfa)
+        print("IDFA: \(idfa)")
 
-        if self.remoteCheck {
+        if UserDefaultsProperties.iOSCheck {
 
             AnalyticsManager.trackWith(eventName: .init(rawValue: "StartCheck_With_iOS_14.4_13"))
             self.setupAppsFlyer()
@@ -82,7 +80,7 @@ open class TrackingTransparencyManager: NSObject {
                 }
 
                 FBSDKCoreKit.Settings.setAdvertiserTrackingEnabled(true)
-                if !self.remoteCheck {
+                if !UserDefaultsProperties.iOSCheck {
                     self.setupAppsFlyer()
                     self.completion?()
                 }
