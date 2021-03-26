@@ -82,7 +82,7 @@ public func configuration(application: UIApplication,
    SearchAdsService().configuration()
    YandexService().configuration()
         
-   UserAcquisitionManager.shared.configure(withAPIKey: GettingsKeysFromPlist.getKey(by: .userAcquisitionKey) as! String,
+   UserAcquisitionManager.shared.configure(withAPIKey: GettingsKeysFromPlist.getKey(by: .userAcquisitionKey) as? String ?? "",
                                            urlRequest: userAcquisitionServer)
    UserAcquisitionManager.shared.conversionInfo.fbAnonymousId = AppEvents.anonymousID
         
@@ -95,7 +95,8 @@ public func configuration(application: UIApplication,
 1) Для запуска Firebase, FirebaseRemoteConfig, AppsFlyer, ATT, вы должны вызвать в AppDelegate:
 
 ```swift
-TrackingTransparencyManager().configuration(isStartFirebase: "Флаг на запуск Firebase", isStartRemoteConfig: "Флаг на запук FirebaseRemoteConfig") {
+TrackingTransparencyManager().configuration(isStartFirebase: "Флаг на запуск Firebase", 
+					    isStartRemoteConfig: "Флаг на запук FirebaseRemoteConfig") {
    "Тут устанавливаете запуск первого экрана"    
 }
 ```
