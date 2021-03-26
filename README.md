@@ -29,7 +29,7 @@ StoreManager.shared.configuration()
 
 Оформление подписки:
 ```swift
-StoreManager.shared.purchase(product: "Выбираем из списка нужный вам id подписки") { (result) in
+StoreManager.shared.purchase(product: "Пишем ключ из ProductList") { (result) in
    switch result {
       case .successful:
          print("successful")
