@@ -8,7 +8,7 @@ s.summary = "CRGeneralManager"
 s.requires_arc = true
 
 # 2
-s.version = "0.0.12"
+s.version = "0.0.13"
 
 # 3
 s.license = { :type => "MIT", :file => "LICENSE" }
@@ -25,6 +25,7 @@ s.source = { :git => "https://github.com/AlCreatex/CRGeneralManager.git",
 
 # 7
 s.static_framework = true
+s.dependency 'SwiftGen'
 s.dependency 'lottie-ios'
 s.dependency 'NVActivityIndicatorView'
 s.dependency 'DeviceKit'
@@ -47,7 +48,7 @@ s.dependency 'GoogleMobileAdsMediationTapjoy'
 s.dependency 'GoogleMobileAdsMediationVungle'
 
 # 8
-s.source_files = "CRGeneralManager/*.{swift,yml}"
+s.source_files = "CRGeneralManager/**/*.{swift}"
 
 # 9
 s.resources = "CRGeneralManager/**/*.{png,jpeg,jpg,storyboard,xib,xcassets}"

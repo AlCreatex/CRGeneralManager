@@ -1,5 +1,0 @@
-plist:
-  inputs: $(SRCROOT)/RemoteConfigPlist.plist
-  outputs:
-    templateName: runtime-swift5
-    output: ${PODS_ROOT}/CRGeneralManager/Plist.swift
