@@ -137,6 +137,7 @@ PODS:
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
   - PromisesObjC (1.2.12)
+  - SwiftGen (6.4.0)
   - SwiftyStoreKit (0.16.1)
   - TapjoySDK (12.8.0)
   - UnityAds (3.6.0)
@@ -169,6 +170,7 @@ DEPENDENCIES:
   - GoogleMobileAdsMediationVungle
   - lottie-ios
   - NVActivityIndicatorView
+  - SwiftGen
   - SwiftyStoreKit
   - YandexMobileMetrica
 
@@ -207,6 +209,7 @@ SPEC REPOS:
     - nanopb
     - NVActivityIndicatorView
     - PromisesObjC
+    - SwiftGen
     - SwiftyStoreKit
     - TapjoySDK
     - UnityAds
@@ -247,12 +250,13 @@ SPEC CHECKSUMS:
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+  SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
   TapjoySDK: eee3e1c96945a75028cc7572993a645a5f10adbe
   UnityAds: 3f88cf3d3b11991de1025fcf0e3109fd86035fba
   VungleSDK-iOS: 09abfadbcc04e0748ce33c6bd02282e9961125ba
   YandexMobileMetrica: 072fc59d216c8824d83d1d54bdc6e96d9cfcc59c
 
-PODFILE CHECKSUM: f4f9eb6bb7174595a4c5f382be6e01ba01c7df27
+PODFILE CHECKSUM: b2c9014992bc3bb0b837d17f52cd1b241ce2e468
 
 COCOAPODS: 1.10.1

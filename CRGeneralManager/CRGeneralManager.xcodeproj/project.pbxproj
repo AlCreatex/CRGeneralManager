@@ -23,6 +23,7 @@
 		84C67C75260B7A6700D43580 /* GettingKeysFromPlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C67C67260B7A6700D43580 /* GettingKeysFromPlist.swift */; };
 		84C67C76260B7A6700D43580 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C67C68260B7A6700D43580 /* Typealias.swift */; };
 		84C67C77260B7A6700D43580 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C67C69260B7A6700D43580 /* UserDefaults.swift */; };
+		84CF9F09260DF00900C7FD12 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 84CF9F08260DF00900C7FD12 /* swiftgen.yml */; };
 		B59C9756FCDD57C6E5AD72AA /* Pods_CRGeneralManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C1F8FA3F60F588F131B8F3A /* Pods_CRGeneralManager.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		84C67C67260B7A6700D43580 /* GettingKeysFromPlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GettingKeysFromPlist.swift; sourceTree = "<group>"; };
 		84C67C68260B7A6700D43580 /* Typealias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		84C67C69260B7A6700D43580 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		84CF9F08260DF00900C7FD12 /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		8C1F8FA3F60F588F131B8F3A /* Pods_CRGeneralManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CRGeneralManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -65,6 +67,7 @@
 		845B068A260B79E6008A5150 = {
 			isa = PBXGroup;
 			children = (
+				84CF9F08260DF00900C7FD12 /* swiftgen.yml */,
 				845B0696260B79E6008A5150 /* CRGeneralManager */,
 				845B0695260B79E6008A5150 /* Products */,
 				B686AD585BF239D2694F1A96 /* Pods */,
@@ -83,6 +86,7 @@
 		845B0696260B79E6008A5150 /* CRGeneralManager */ = {
 			isa = PBXGroup;
 			children = (
+				84CF9F07260DEFFE00C7FD12 /* SwiftGen */,
 				84C67C65260B7A6700D43580 /* Utils */,
 				84C67C59260B7A6700D43580 /* Services */,
 				84C67C5F260B7A6700D43580 /* Managers */,
@@ -126,6 +130,13 @@
 				84C67C69260B7A6700D43580 /* UserDefaults.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		84CF9F07260DEFFE00C7FD12 /* SwiftGen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SwiftGen;
 			sourceTree = "<group>";
 		};
 		8C52B438196F3E4CF82FAD18 /* Frameworks */ = {
@@ -215,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84CF9F09260DF00900C7FD12 /* swiftgen.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
