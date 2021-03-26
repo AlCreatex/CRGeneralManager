@@ -14,7 +14,7 @@ GoogleAdsManager.shared.configuration()
 
 ```swift
 GoogleAdsManager.shared.presentInterstitial(viewController: self) {
-   "Ваши действия после того как реклама закроется или же произойдет ошибка"
+   "Ваши действия после того как реклама закроется или же произойдет ошибка загрузки рекламы"
 }
 ```
 
