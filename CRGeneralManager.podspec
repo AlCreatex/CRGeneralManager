@@ -8,7 +8,7 @@ s.summary = "CRGeneralManager"
 s.requires_arc = true
 
 # 2
-s.version = "0.0.10"
+s.version = "0.0.11"
 
 # 3
 s.license = { :type => "MIT", :file => "LICENSE" }
@@ -54,5 +54,8 @@ s.resources = "CRGeneralManager/**/*.{png,jpeg,jpg,storyboard,xib,xcassets}"
 
 # 10
 s.swift_version = "5"
+
+# 11
+s.prepare_command = '${PODS_ROOT}/SwiftGen/bin/swiftgen'
 
 end

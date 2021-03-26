@@ -86,10 +86,22 @@
 		845B0696260B79E6008A5150 /* CRGeneralManager */ = {
 			isa = PBXGroup;
 			children = (
+				84C67C66260B7A6700D43580 /* Constants.swift */,
+				84C67C67260B7A6700D43580 /* GettingKeysFromPlist.swift */,
+				84C67C68260B7A6700D43580 /* Typealias.swift */,
+				84C67C69260B7A6700D43580 /* UserDefaults.swift */,
+				84C67C5A260B7A6700D43580 /* SearchAdsService.swift */,
+				84C67C5B260B7A6700D43580 /* AppsFlyerService.swift */,
+				84C67C5C260B7A6700D43580 /* YandexService.swift */,
+				84C67C5D260B7A6700D43580 /* FirebaseService.swift */,
+				84C67C5E260B7A6700D43580 /* FacebookService.swift */,
+				84C67C64260B7A6700D43580 /* AnalyticsManager.swift */,
+				84C67C63260B7A6700D43580 /* StoreManager.swift */,
+				84933F5E260C7EA6000D5493 /* UserAcquisitionManager.swift */,
+				84C67C62260B7A6700D43580 /* GoogleAdsManager.swift */,
+				84C67C60260B7A6700D43580 /* TrackingTransparencyManager.swift */,
+				84C67C61260B7A6700D43580 /* AppManager.swift */,
 				84A349D5260DF39F00C61957 /* SwiftGen */,
-				84C67C65260B7A6700D43580 /* Utils */,
-				84C67C59260B7A6700D43580 /* Services */,
-				84C67C5F260B7A6700D43580 /* Managers */,
 				845B0697260B79E6008A5150 /* CRGeneralManager.h */,
 				845B0698260B79E6008A5150 /* Info.plist */,
 			);
@@ -101,42 +113,6 @@
 			children = (
 			);
 			path = SwiftGen;
-			sourceTree = "<group>";
-		};
-		84C67C59260B7A6700D43580 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				84C67C5A260B7A6700D43580 /* SearchAdsService.swift */,
-				84C67C5B260B7A6700D43580 /* AppsFlyerService.swift */,
-				84C67C5C260B7A6700D43580 /* YandexService.swift */,
-				84C67C5D260B7A6700D43580 /* FirebaseService.swift */,
-				84C67C5E260B7A6700D43580 /* FacebookService.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		84C67C5F260B7A6700D43580 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				84C67C64260B7A6700D43580 /* AnalyticsManager.swift */,
-				84C67C63260B7A6700D43580 /* StoreManager.swift */,
-				84933F5E260C7EA6000D5493 /* UserAcquisitionManager.swift */,
-				84C67C62260B7A6700D43580 /* GoogleAdsManager.swift */,
-				84C67C60260B7A6700D43580 /* TrackingTransparencyManager.swift */,
-				84C67C61260B7A6700D43580 /* AppManager.swift */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
-		84C67C65260B7A6700D43580 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				84C67C66260B7A6700D43580 /* Constants.swift */,
-				84C67C67260B7A6700D43580 /* GettingKeysFromPlist.swift */,
-				84C67C68260B7A6700D43580 /* Typealias.swift */,
-				84C67C69260B7A6700D43580 /* UserDefaults.swift */,
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		8C52B438196F3E4CF82FAD18 /* Frameworks */ = {
@@ -438,7 +414,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.10;
+				MARKETING_VERSION = 0.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = admin.CRGeneralManager;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -463,7 +439,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.10;
+				MARKETING_VERSION = 0.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = admin.CRGeneralManager;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
