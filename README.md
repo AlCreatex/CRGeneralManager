@@ -95,9 +95,9 @@ public func configuration(application: UIApplication,
 1) Для запуска Firebase, FirebaseRemoteConfig, AppsFlyer, ATT, вы должны вызвать в AppDelegate:
 
 ```swift
-TrackingTransparencyManager().configuration(startScreen: {
-   "Тут устанавливаете запуск первого экрана"
-})
+TrackingTransparencyManager().configuration(isStartFirebase: "Флаг на запуск Firebase", isStartRemoteConfig: "Флаг на запук FirebaseRemoteConfig") {
+   "Тут устанавливаете запуск первого экрана"    
+}
 ```
 
 2) Для запуска первого экрана, вы должны описать функцию, а после вызывать ее в блоке выше:
