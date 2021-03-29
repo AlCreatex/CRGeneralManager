@@ -16,7 +16,7 @@ target 'CRGeneralManager' do
   pod 'SwiftyStoreKit'
   
   #Metrics
-  pod 'Firebase/Auth'
+  pod 'Firebase'
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
   pod 'Firebase/RemoteConfig'

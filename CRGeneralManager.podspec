@@ -8,7 +8,7 @@ s.summary = "CRGeneralManager"
 s.requires_arc = true
 
 # 2
-s.version = "1.0.1"
+s.version = "1.0.2"
 
 # 3
 s.license = { :type => "MIT", :file => "LICENSE" }
@@ -29,7 +29,7 @@ s.dependency 'lottie-ios'
 s.dependency 'NVActivityIndicatorView'
 s.dependency 'DeviceKit'
 s.dependency 'SwiftyStoreKit'
-s.dependency 'Firebase/Auth'
+s.dependency 'Firebase'
 s.dependency 'Firebase/Analytics'
 s.dependency 'Firebase/Crashlytics'
 s.dependency 'Firebase/RemoteConfig'
