@@ -55,9 +55,7 @@ open class StoreManager: NSObject {
             for purchase in purchases {
                 switch purchase.transaction.transactionState {
                 case .purchased, .restored:
-                    if purchase.needsFinishTransaction {
-                        SwiftyStoreKit.finishTransaction(purchase.transaction)
-                    }
+                    self.finishPurchaseRestoreTransaction(purchase: purchase)
                 default: break
                 }
             }
@@ -113,7 +111,7 @@ open class StoreManager: NSObject {
                 self.finishPurchaseTransaction(purchase: purchase)
                 
                 UserAcquisitionManager.shared.logPurchase(of: purchase.product)
-                AnalyticsManager.trackPurchase(eventName: .init(rawValue: "Subscription_Done"),
+                AnalyticsManager.trackPurchase(eventName: .subscriptionDone,
                                                price: purchase.product.price.doubleValue,
                                                currency: purchase.product.priceLocale.currencyCode)
                 
@@ -122,10 +120,10 @@ open class StoreManager: NSObject {
                 
                 switch error.code {
                 case .paymentCancelled:
-                    AnalyticsManager.trackWith(eventName: .init(rawValue: "Subscription_Cancel"))
+                    AnalyticsManager.trackWith(eventName: .subscriptionCancel)
                     completion(.cancelled)
                 default:
-                    AnalyticsManager.trackWith(eventName: .init(rawValue: "Subscription_Failed"))
+                    AnalyticsManager.trackWith(eventName: .subscriptionCancel)
                     completion(.failed)
                 }
             }
@@ -156,13 +154,13 @@ open class StoreManager: NSObject {
             
             if results.restoreFailedPurchases.count > 0 {
                 
-                AnalyticsManager.trackWith(eventName: .init(rawValue: "Restore_Failed"))
+                AnalyticsManager.trackWith(eventName: .restoreFailed)
                 completion(.failed)
             } else if results.restoredPurchases.count > 0 {
                 
                 results.restoredPurchases.forEach({ self.finishPurchaseRestoreTransaction(purchase: $0) })
                 self.verifySubscription(completion: { (result) in
-                    AnalyticsManager.trackWith(eventName: result ? .init(rawValue: "Restore_Done") : .init(rawValue: "Restore_Failed"))
+                    AnalyticsManager.trackWith(eventName: result ? .restoreDone : .restoreFailed)
                     completion(result ? .successful : .failed)
                 })
             }

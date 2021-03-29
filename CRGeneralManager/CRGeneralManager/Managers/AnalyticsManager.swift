@@ -10,6 +10,12 @@ open class AnalyticsManager: NSObject {
         
         public var rawValue: String
         
+        internal static let subscriptionDone    = EventName(rawValue: "Subscription_Done")
+        internal static let subscriptionCancel  = EventName(rawValue: "Subscription_Cancel")
+        internal static let subscriptionFailed  = EventName(rawValue: "Subscription_Failed")
+        internal static let restoreDone         = EventName(rawValue: "Restore_Done")
+        internal static let restoreFailed       = EventName(rawValue: "Restore_Failed")
+        
         public static let subscribeOrganic      = EventName(rawValue: "Subscribe_Organic")
         public static let startNowAppsFlyer     = EventName(rawValue: "StartNow_AppsFlyer")
         public static let closeOnboarding       = EventName(rawValue: "Close_Onboarding")

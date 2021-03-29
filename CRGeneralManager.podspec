@@ -8,13 +8,13 @@ s.summary = "CRGeneralManager"
 s.requires_arc = true
 
 # 2
-s.version = "0.0.14"
+s.version = "0.0.15"
 
 # 3
 s.license = { :type => "MIT", :file => "LICENSE" }
 
 # 4 - Replace with your name and e-mail address
-s.author = { "Keegan Rush" => "al@createx.by" }
+s.author = { "Alex Lebed" => "al@createx.by" }
 
 # 5 - Replace this URL with your own GitHub page's URL (from the address bar)
 s.homepage = "https://github.com/AlCreatex/CRGeneralManager"
