@@ -2,6 +2,9 @@ import AppsFlyerLib
 
 open class AppsFlyerService: NSObject {
     
+    //MARK: - Singleton
+    public static let shared = AppsFlyerService()
+    
     //MARK: - Properties
     public var additionalCodeAtAnswerAppsFlyer: CompletionBlockAppsFlyer?
     

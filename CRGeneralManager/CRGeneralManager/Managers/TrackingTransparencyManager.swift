@@ -25,16 +25,15 @@ open class TrackingTransparencyManager: NSObject {
     //MARK: - Firebase
     fileprivate func setupFirebase(isStartFirebase: Bool, isStartRemoteConfig: Bool) {
         
-        let firebase = FirebaseSerivce()
-        firebase.configuration(isStartFirebase: isStartFirebase, isStartRemoteConfig: isStartRemoteConfig)
+        FirebaseSerivce().configuration(isStartFirebase: isStartFirebase,
+                                        isStartRemoteConfig: isStartRemoteConfig)
     }
 
     //MARK: - AppsFlyer
     fileprivate func setupAppsFlyer() {
 
-        let appsFlyer = AppsFlyerService()
-        appsFlyer.configuration()
-        appsFlyer.additionalCodeAtAnswerAppsFlyer = { [weak self] (data) in
+        AppsFlyerService.shared.configuration()
+        AppsFlyerService.shared.additionalCodeAtAnswerAppsFlyer = { [weak self] (data) in
             guard let self = self else { return }
             
             if data["af_status"] as! String == "Organic" && UserDefaultsProperties.iOSCheck {
