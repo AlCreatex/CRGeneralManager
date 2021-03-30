@@ -104,25 +104,25 @@ open class UserAcquisitionManager: NSObject {
         
         let iap: [String: Any] = [
             "product_id": product.productIdentifier,
-            "price": product.price.stringValue,
-            "currency": product.priceLocale.currencyCode ?? "",
+            "price"     : product.price.stringValue,
+            "currency"  : product.priceLocale.currencyCode ?? "",
         ]
         
         var extra: [String: Any] = [
-            "acquisition_source": acquisitionSource,
-            "acquisition_date": Int(info.acquisitionDate.timeIntervalSince1970),
-            "ad_campaign": info.adCampaign,
-            "ad_group": info.adGroup,
-            "ad_creative": info.adCreative,
-            "vendor_id": UIDevice.current.identifierForVendor?.uuidString ?? "",
-            "appsflyer_id": info.appsFlyerId,
-            "appmetrica_device_id": info.appmetricaId,
-            "amplitude_device_id": info.amplitudeId,
-            "adjust_raw": info.adjustRaw,
-            "appsflyer_raw": info.appsFlyerRaw,
-            "searchads_raw": info.searchAdsRaw,
-            "branch_raw": info.branchRaw,
-            "fb_anonymous_id": info.fbAnonymousId
+            "acquisition_source"    : acquisitionSource,
+            "acquisition_date"      : Int(info.acquisitionDate.timeIntervalSince1970),
+            "ad_campaign"           : info.adCampaign,
+            "ad_group"              : info.adGroup,
+            "ad_creative"           : info.adCreative,
+            "vendor_id"             : UIDevice.current.identifierForVendor?.uuidString ?? "",
+            "appsflyer_id"          : info.appsFlyerId,
+            "appmetrica_device_id"  : info.appmetricaId,
+            "amplitude_device_id"   : info.amplitudeId,
+            "adjust_raw"            : info.adjustRaw,
+            "appsflyer_raw"         : info.appsFlyerRaw,
+            "searchads_raw"         : info.searchAdsRaw,
+            "branch_raw"            : info.branchRaw,
+            "fb_anonymous_id"       : info.fbAnonymousId
         ]
         
         for (field, value) in info.extra {
@@ -130,13 +130,13 @@ open class UserAcquisitionManager: NSObject {
         }
         
         let params: [String: Any?] = [
-            "bundle_id": Bundle.main.bundleIdentifier ?? "",
-            "afi": afi,
-            "receipt": receipt,
-            "iap": iap,
-            "country": product.priceLocale.regionCode ?? "",
-            "extra": extra,
-            "api_key": APIKey
+            "bundle_id" : Bundle.main.bundleIdentifier ?? "",
+            "afi"       : afi,
+            "receipt"   : receipt,
+            "iap"       : iap,
+            "country"   : product.priceLocale.regionCode ?? "",
+            "extra"     : extra,
+            "api_key"   : APIKey
         ]
         
         self.requestToServer(params: params, endPoint: .receipt)
@@ -175,33 +175,33 @@ extension UserAcquisitionManager {
         }
         var userId: String?
         var acquisitionSource: AcquisitionSource = .organic
-        var acquisitionDate = Date()
-        var adCampaign = ""
-        var adGroup = ""
-        var adCreative = ""
-        public var appsFlyerId = ""
-        public var appmetricaId = ""
-        public var amplitudeId = ""
-        public var fbAnonymousId = ""
-        var adjustRaw = ""
-        var appsFlyerRaw = ""
-        var searchAdsRaw = ""
-        var branchRaw = ""
-        var extra = [String: Any]()
+        var acquisitionDate         = Date()
+        var adCampaign              = ""
+        var adGroup                 = ""
+        var adCreative              = ""
+        public var appsFlyerId      = ""
+        public var appmetricaId     = ""
+        public var amplitudeId      = ""
+        public var fbAnonymousId    = ""
+        var adjustRaw               = ""
+        var appsFlyerRaw            = ""
+        var searchAdsRaw            = ""
+        var branchRaw               = ""
+        var extra                   = [String: Any]()
 
         public mutating func setAppsFlyerData(_ appsFlyerData: [String: Any]) {
             if let jsonData = try? JSONSerialization.data(withJSONObject: appsFlyerData, options: .prettyPrinted) {
                 self.appsFlyerRaw = String(data: jsonData, encoding: .utf8) ?? ""
             }
             
-            let status = appsFlyerData["af_status"] as? String ?? ""
-            let source = appsFlyerData["media_source"] as? String ?? ""
-            let campaign = appsFlyerData["campaign"] as? String ?? ""
-            let campaignId = appsFlyerData["campaign_id"] as? String ?? ""
-            let adSet = appsFlyerData["adset"] as? String ?? ""
-            let adSetId = appsFlyerData["adset_id"] as? String ?? ""
-            let ad = appsFlyerData["ad"] as? String ?? ""
-            let adId = appsFlyerData["ad_id"] as? String ?? ""
+            let status      = appsFlyerData["af_status"] as? String ?? ""
+            let source      = appsFlyerData["media_source"] as? String ?? ""
+            let campaign    = appsFlyerData["campaign"] as? String ?? ""
+            let campaignId  = appsFlyerData["campaign_id"] as? String ?? ""
+            let adSet       = appsFlyerData["adset"] as? String ?? ""
+            let adSetId     = appsFlyerData["adset_id"] as? String ?? ""
+            let ad          = appsFlyerData["ad"] as? String ?? ""
+            let adId        = appsFlyerData["ad_id"] as? String ?? ""
             print(appsFlyerData)
             var acquisitionSource: UserAcquisitionManager.Info.AcquisitionSource {
                 switch status {
@@ -230,11 +230,11 @@ extension UserAcquisitionManager {
                     return "\(str1) (\(str2))"
                 }
             }
-            self.acquisitionSource = acquisitionSource
-            self.acquisitionDate = acquisitionDate
-            self.adCampaign = merged(campaign, campaignId)
-            self.adGroup = merged(adSet, adSetId)
-            self.adCreative = merged(ad, adId)
+            self.acquisitionSource  = acquisitionSource
+            self.acquisitionDate    = acquisitionDate
+            self.adCampaign         = merged(campaign, campaignId)
+            self.adGroup            = merged(adSet, adSetId)
+            self.adCreative         = merged(ad, adId)
         }
         
         public mutating func setAdjustData(_ adjustData: [String: Any]) {

@@ -15,6 +15,9 @@ open class AnalyticsManager: NSObject {
         internal static let subscriptionFailed  = EventName(rawValue: "Subscription_Failed")
         internal static let restoreDone         = EventName(rawValue: "Restore_Done")
         internal static let restoreFailed       = EventName(rawValue: "Restore_Failed")
+        internal static let idfaDisallowed      = EventName(rawValue: "Idfa_Disallowed")
+        internal static let idfaAllowed         = EventName(rawValue: "Idfa_Allowed")
+        
         
         public static let subscribeOrganic      = EventName(rawValue: "Subscribe_Organic")
         public static let startNowAppsFlyer     = EventName(rawValue: "StartNow_AppsFlyer")

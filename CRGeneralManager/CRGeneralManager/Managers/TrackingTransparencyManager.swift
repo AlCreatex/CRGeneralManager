@@ -68,9 +68,9 @@ open class TrackingTransparencyManager: NSObject {
             ATTrackingManager.requestTrackingAuthorization { (state) in
                 switch state {
                 case .denied:
-                    AnalyticsManager.trackWith(eventName: .init(rawValue: "idfa_disallowed"))
+                    AnalyticsManager.trackWith(eventName: .idfaDisallowed)
                 case .authorized:
-                    AnalyticsManager.trackWith(eventName: .init(rawValue: "idfa_allowed"))
+                    AnalyticsManager.trackWith(eventName: .idfaAllowed)
                 default:
                     break
                 }
