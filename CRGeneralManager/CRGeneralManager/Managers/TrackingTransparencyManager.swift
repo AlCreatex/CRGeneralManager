@@ -32,9 +32,7 @@ open class TrackingTransparencyManager: NSObject {
     fileprivate func setupAppsFlyer() {
 
         AppsFlyerService.shared.configuration()
-        AppsFlyerService.shared.additionalCodeAtAnswerAppsFlyer = { [weak self] (data) in
-            guard let self = self else { return }
-            
+        AppsFlyerService.shared.additionalCodeAtAnswerAppsFlyer = { (data) in
             if data["af_status"] as! String == "Organic" && UserDefaultsProperties.iOSCheck {
                 self.setupAlertATT()
             }
