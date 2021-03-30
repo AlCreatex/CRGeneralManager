@@ -37,6 +37,6 @@ public struct Constants {
     }
     
     public struct Interface {
-        static let sizeScale: CGFloat = Device.current.isPhone ? UIScreen.main.bounds.height / (Device.current.diagonal <= Device.iPhone8Plus.diagonal ? 736.0 : 812.0) : 1.0
+        public static let sizeScale: CGFloat = Device.current.isPhone ? UIScreen.main.bounds.height / (Device.current.diagonal <= Device.iPhone8Plus.diagonal ? 736.0 : 812.0) : 1.0
     }
 }
