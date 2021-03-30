@@ -16,10 +16,9 @@ open class TrackingTransparencyManager: NSObject {
                               isStartRemoteConfig: Bool = true,
                               startScreen: CompletionBlock? = nil) {
 
+        self.completion = { startScreen?() }
         self.setupFirebase(isStartFirebase: isStartFirebase, isStartRemoteConfig: isStartRemoteConfig)
         self.setupATT()
-        
-        self.completion = { startScreen?() }
     }
     
     //MARK: - Firebase
