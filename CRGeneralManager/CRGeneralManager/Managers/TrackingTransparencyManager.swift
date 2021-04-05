@@ -38,6 +38,7 @@ open class TrackingTransparencyManager: NSObject {
             if data["af_status"] as! String == "Organic" && UserDefaultsProperties.iOSCheck {
                 self.setupAlertATT()
             }
+            self.appsFlyerService = nil
         }
     }
 
