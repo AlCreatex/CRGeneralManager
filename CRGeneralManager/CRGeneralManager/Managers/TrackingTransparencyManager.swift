@@ -10,6 +10,7 @@ open class TrackingTransparencyManager: NSObject {
 
     //MARK: - Properties
     fileprivate var completion: CompletionBlock?
+    fileprivate var appsFlyerService: AppsFlyerService?
 
     //MARK: - Setups
     public func configuration(isStartFirebase: Bool = true,
@@ -31,8 +32,9 @@ open class TrackingTransparencyManager: NSObject {
     //MARK: - AppsFlyer
     fileprivate func setupAppsFlyer() {
 
-        AppsFlyerService.shared.configuration()
-        AppsFlyerService.shared.additionalCodeAtAnswerAppsFlyer = { (data) in
+        self.appsFlyerService = AppsFlyerService()
+        self.appsFlyerService?.configuration()
+        self.appsFlyerService?.additionalCodeAtAnswerAppsFlyer = { (data) in
             if data["af_status"] as! String == "Organic" && UserDefaultsProperties.iOSCheck {
                 self.setupAlertATT()
             }

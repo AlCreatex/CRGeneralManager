@@ -37,17 +37,19 @@ open class GoogleAdsManager: NSObject {
     //MARK: - Interstitial
     public func presentInterstitial(viewController: UIViewController, completion: CompletionBlock?) {
         
-        if let interstitial = self.interstitial {
-            interstitial.present(fromRootViewController: viewController)
-        } else {
-            print("Ad wasn't ready")
-            completion?()
-        }
-        
-        self.reloadLoadRequest()
-        self.completionInterstitial = {
-            self.interstitial = nil
-            completion?()
+        if !StoreManager.shared.isActive {
+            if let interstitial = self.interstitial {
+                interstitial.present(fromRootViewController: viewController)
+            } else {
+                print("Ad wasn't ready")
+                completion?()
+            }
+            
+            self.reloadLoadRequest()
+            self.completionInterstitial = {
+                self.interstitial = nil
+                completion?()
+            }
         }
     }
     
