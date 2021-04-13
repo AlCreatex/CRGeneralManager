@@ -4,7 +4,7 @@
 Add ```pod 'CRGeneralManager', :git => "https://github.com/AlCreatex/CRGeneralManager.git"``` to your Podfile. "CRGeneralManager" is the name of the library.
 
 ## GoogleAdsManager
-1) При первом запуске приложения, вам нужно вызвать, **НО ЕСЛИ ВЫ ЗАПУСКАЕТЕ AppManager, ВЫ МОЖЕТЕ ПРОПУСТИТЬ ЭТОТ ПУНКТ**:
+1) При первом запуске приложения, вы можете вызвать configuration, **НО ЕСЛИ ВЫ ЗАПУСКАЕТЕ AppManager, ВЫ МОЖЕТЕ ПРОПУСТИТЬ ЭТОТ ПУНКТ**:
 
 ```swift
 GoogleAdsManager.shared.configuration()
@@ -19,7 +19,7 @@ GoogleAdsManager.shared.presentInterstitial(viewController: self) {
 ```
 
 ## StoreManager
-1) При первом запуске приложения, вам нужно вызвать, **НО ЕСЛИ ВЫ ЗАПУСКАЕТЕ AppManager, ВЫ МОЖЕТЕ ПРОПУСТИТЬ ЭТОТ ПУНКТ**:
+1) При первом запуске приложения, вы можете вызвать configuration, **НО ЕСЛИ ВЫ ЗАПУСКАЕТЕ AppManager, ВЫ МОЖЕТЕ ПРОПУСТИТЬ ЭТОТ ПУНКТ**:
 
 ```swift
 StoreManager.shared.configuration()
