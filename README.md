@@ -10,7 +10,7 @@ Add ```pod 'CRGeneralManager', :git => "https://github.com/AlCreatex/CRGeneralMa
 GoogleAdsManager.shared.configuration()
 ```
 
-2) Далее внутри приложения для показа реклама, вы должны вызвать:
+2) Далее внутри приложения для показа interstitial рекламы, вы должны вызвать:
 
 ```swift
 GoogleAdsManager.shared.presentInterstitial(viewController: self) {
