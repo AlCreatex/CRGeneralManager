@@ -9,7 +9,8 @@ open class AppManager: NSObject {
     //MARK: - Methods
     public func configuration(application: UIApplication,
                               launchOptions: [UIApplication.LaunchOptionsKey: Any]?,
-                              userAcquisitionServer: UserAcquisitionManager.Url = .inapps) {
+                              userAcquisitionServer: UserAcquisitionManager.Url = .inapps,
+                              configurationGoogleAds: Bool = false) {
         
         FacebookService().configuration(launchOptions: launchOptions)
         SearchAdsService().configuration()
@@ -21,7 +22,9 @@ open class AppManager: NSObject {
         UserAcquisitionManager.shared.conversionInfo.fbAnonymousId = AppEvents.anonymousID
         
         StoreManager.shared.configuration()
-        GoogleAdsManager.shared.configuration()
+        if configurationGoogleAds {
+            GoogleAdsManager.shared.configuration()
+        }
         SKAdNetwork.registerAppForAdNetworkAttribution()
     }
 }
