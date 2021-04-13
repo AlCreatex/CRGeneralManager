@@ -14,6 +14,8 @@ final class GettingsKeysFromPlist: NSObject {
         public static let appsFlyerKey          = Keys(rawValue: Constants.NameAtKeysPlist.appsFlyerKey)
         public static let userAcquisitionKey    = Keys(rawValue: Constants.NameAtKeysPlist.userAcquisitionKey)
         public static let interstitialKey       = Keys(rawValue: Constants.NameAtKeysPlist.intersititalKey)
+        public static let bannerKey             = Keys(rawValue: Constants.NameAtKeysPlist.bannerKey)
+        public static let rewardedKey           = Keys(rawValue: Constants.NameAtKeysPlist.rewardedKey)
         
         public init(rawValue: String) {
             self.rawValue = rawValue

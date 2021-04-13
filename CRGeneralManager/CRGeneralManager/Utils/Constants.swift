@@ -10,6 +10,7 @@ public struct Constants {
     
     internal struct NameQueue {
         static let intersititalTimeOutQueue = "com.google.interstitial.queue"
+        static let rewardedTimeOutQueue     = "com.google.rewarded.queue"
     }
     
     internal struct NameAtInfoPlist {
@@ -25,6 +26,8 @@ public struct Constants {
         static let appsFlyerKey         = "AppsFlyerKey"
         static let userAcquisitionKey   = "UserAcquisitionKey"
         static let intersititalKey      = "IntersititalKey"
+        static let bannerKey            = "BannerKey"
+        static let rewardedKey          = "RewardedKey"
     }
     
     internal struct NameFile {
