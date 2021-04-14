@@ -95,7 +95,7 @@ public func configuration(application: UIApplication,
                           launchOptions: [UIApplication.LaunchOptionsKey: Any]?,
                           userAcquisitionServer: UserAcquisition.Urls = .inapps) {
         
-   FacebookService().configuration(launchOptions: launchOptions)
+   FacebookService().configuration()
    SearchAdsService().configuration()
    YandexService().configuration()
         
