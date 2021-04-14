@@ -104,7 +104,7 @@ open class GoogleAdsManager: NSObject {
     }
     
     //MARK: - Banner
-    fileprivate func present(bannerView: GADBannerView, viewController: UIViewController) {
+    public func present(bannerView: GADBannerView, viewController: UIViewController) {
         
         if !StoreManager.shared.isActive {
             bannerView.adUnitID = bannerKey
