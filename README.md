@@ -76,8 +76,7 @@ AppManager().configuration(application: application,
 ```swift
 public func configuration(application: UIApplication,
                           launchOptions: [UIApplication.LaunchOptionsKey: Any]?,
-                          userAcquisitionServer: UserAcquisition.Urls = .inapps,
-			  configurationGoogleAds: Bool = false) {
+                          userAcquisitionServer: UserAcquisition.Urls = .inapps) {
         
    FacebookService().configuration(launchOptions: launchOptions)
    SearchAdsService().configuration()
@@ -89,9 +88,7 @@ public func configuration(application: UIApplication,
    UserAcquisitionManager.shared.conversionInfo.fbAnonymousId = AppEvents.anonymousID
         
    StoreManager.shared.configuration()
-   if configurationGoogleAds {
-      GoogleAdsManager.shared.configuration()
-   }
+   GoogleAdsManager.shared.configuration()
    SKAdNetwork.registerAppForAdNetworkAttribution()
 }
 ```
