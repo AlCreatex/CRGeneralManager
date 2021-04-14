@@ -131,18 +131,18 @@ open class StoreManager: NSObject {
     }
     
     //MARK: - Rectrive Info by products
-    public func rectriveInfo() {
+    public func rectriveInfo(productBundle: String, completion: @escaping CompletionBlockSKProduct) {
         
         SwiftyStoreKit.retrieveProductsInfo(self.products) { (result) in
-            if let product = result.retrievedProducts.first {
-                
+            if let product = result.retrievedProducts.first, product.productIdentifier == productBundle {
                 print("ProductIdentifier: \(product.productIdentifier), price: \(product.localizedPrice!)")
+                completion(product)
             } else if let invalidProductId = result.invalidProductIDs.first {
-                
                 print("Invalid product identifier: \(invalidProductId)")
+                completion(nil)
             } else {
-                
                 print("Error: \(result.error?.localizedDescription ?? "")")
+                completion(nil)
             }
         }
     }

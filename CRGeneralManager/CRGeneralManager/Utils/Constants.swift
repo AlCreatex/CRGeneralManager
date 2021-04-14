@@ -32,7 +32,7 @@ public struct Constants {
     
     internal struct NameFile {
         static let remoteConfig = "RemoteConfigPlist"
-        static let product = "ProductPlist"
+        static let product      = "ProductPlist"
     }
     
     internal struct TypeFile {

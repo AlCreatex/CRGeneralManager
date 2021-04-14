@@ -36,19 +36,19 @@ open class FirebaseSerivce: NSObject {
         self.remoteConfig.fetch { (status, error) in
             switch status {
             case .noFetchYet:
-                AnalyticsManager.trackWith(eventName: .init(rawValue: "RemoteConfig_NoFetchYet"))
+                AnalyticsManager.trackWith(eventName: .remoteConfigNoFetchYet)
             case .success:
-                AnalyticsManager.trackWith(eventName: .init(rawValue: "RemoteConfig_Success"))
+                AnalyticsManager.trackWith(eventName: .remoteConfigSuccess)
             case .failure:
-                AnalyticsManager.trackWith(eventName: .init(rawValue: "RemoteConfig_Failure"))
+                AnalyticsManager.trackWith(eventName: .remoteConfigFailure)
             case .throttled:
-                AnalyticsManager.trackWith(eventName: .init(rawValue: "RemoteConfig_Throttled"))
+                AnalyticsManager.trackWith(eventName: .remoteConfigThrottled)
             @unknown default:
                 break
             }
             
             if let error = error {
-                AnalyticsManager.trackWith(eventName: .init(rawValue: "RemoteConfig_Error: \(error.localizedDescription)"))
+                AnalyticsManager.trackWith(eventName: .remoteConfigError, parameters: ["error": error.localizedDescription])
             }
         }
     }

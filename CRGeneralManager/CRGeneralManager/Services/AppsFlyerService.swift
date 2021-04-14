@@ -24,7 +24,7 @@ extension AppsFlyerService: AppsFlyerLibDelegate {
 
         if let data = conversionInfo as? [String: Any] {
 
-            AnalyticsManager.trackWith(eventName: .init(rawValue: "AppsFlyer_Data"), parameters: data)
+            AnalyticsManager.trackWith(eventName: .appsFlyerData, parameters: data)
 
             if data["af_status"] as! String != "Organic" && !UserDefaultsProperties.isStartNowAppsFlyer {
                 UserDefaultsProperties.isStartNowAppsFlyer = true
@@ -36,7 +36,7 @@ extension AppsFlyerService: AppsFlyerLibDelegate {
             UserAcquisitionManager.shared.conversionInfo.appsFlyerId = AppsFlyerLib.shared().getAppsFlyerUID()
         } else {
             
-            AnalyticsManager.trackWith(eventName: .init(rawValue: "AppsFlyer_ErrorData"), parameters: conversionInfo)
+            AnalyticsManager.trackWith(eventName: .appsFlyerErrorData, parameters: conversionInfo)
         }
     }
 

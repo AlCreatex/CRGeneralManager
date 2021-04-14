@@ -11,7 +11,7 @@ open class AppManager: NSObject {
                               launchOptions: [UIApplication.LaunchOptionsKey: Any]?,
                               userAcquisitionServer: UserAcquisitionManager.Url = .inapps) {
         
-        FacebookService().configuration(launchOptions: launchOptions)
+        FacebookService().configuration()
         SearchAdsService().configuration()
         YandexService().configuration()
         
