@@ -14,7 +14,7 @@ GoogleAdsManager.shared.configuration()
 
 ```swift
 GoogleAdsManager.shared.presentInterstitial(viewController: self) {
-   "Ваши действия после того как реклама закроется или же произойдет ошибка загрузки рекламы"
+   "Ваши действия, после того как реклама закроется или же произойдет ошибка загрузки рекламы"
 }
 ```
 
@@ -22,9 +22,9 @@ GoogleAdsManager.shared.presentInterstitial(viewController: self) {
 
 ```swift
 GoogleAdsManager.shared.presentRewarded(viewController: self) {
-   "Ваши действия после того как реклама закроется или же произойдет ошибка загрузки рекламы"
+   "Ваши действия, после того как реклама закроется или же произойдет ошибка загрузки рекламы"
 } userDidEarnRewardHandler: {
-   "Ваши действия после того как реклама закончится, чем наградить пользователя"     
+   "Ваши действия, после того как реклама закончится, чем наградить пользователя"     
 }
 ```
 
@@ -67,6 +67,13 @@ StoreManager.shared.restore { (result) in
       case .failed:
          print("failed")
    }
+}
+```
+
+Получение информации о покупке:
+```swift
+StoreManager.shared.rectriveInfo(productBundle: "Bundle вашей покупки или подписки") { (product) in
+   "Ваши действия, после когда вы получите продукт"
 }
 ```
 
