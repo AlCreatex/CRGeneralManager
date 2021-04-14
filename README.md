@@ -10,12 +10,29 @@ Add ```pod 'CRGeneralManager', :git => "https://github.com/AlCreatex/CRGeneralMa
 GoogleAdsManager.shared.configuration()
 ```
 
-2) Далее внутри приложения для показа interstitial рекламы, вы должны вызвать:
+2) Для вызова interstitial рекламы:
 
 ```swift
 GoogleAdsManager.shared.presentInterstitial(viewController: self) {
    "Ваши действия после того как реклама закроется или же произойдет ошибка загрузки рекламы"
 }
+```
+
+3) Для вызова rewarded рекламы:
+
+```swift
+GoogleAdsManager.shared.presentRewarded(viewController: self) {
+   "Ваши действия после того как реклама закроется или же произойдет ошибка загрузки рекламы"
+} userDidEarnRewardHandler: {
+   "Ваши действия после того как реклама закончится, чем наградить пользователя"     
+}
+```
+
+4) Для вызова banner рекламы:
+
+Вам потребуется создать IBOutlet или же создать обьект через код, и поместить его во входной параметр bannerView.
+```swift
+GoogleAdsManager.shared.present(bannerView: GADBannerView, viewController: self)
 ```
 
 ## StoreManager
