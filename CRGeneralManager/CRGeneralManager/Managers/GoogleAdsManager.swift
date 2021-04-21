@@ -47,9 +47,9 @@ open class GoogleAdsManager: NSObject {
         self.interstitialKey = GettingsKeysFromPlist.getKey(from: Constants.NameFile.remoteConfig,
                                                             by: .interstitialKey) as? String
         self.bannerKey = GettingsKeysFromPlist.getKey(from: Constants.NameFile.remoteConfig,
-                                                            by: .bannerKey) as? String
+                                                      by: .bannerKey) as? String
         self.rewardedKey = GettingsKeysFromPlist.getKey(from: Constants.NameFile.remoteConfig,
-                                                            by: .rewardedKey) as? String
+                                                        by: .rewardedKey) as? String
     }
     
     //MARK: - Interstitial
@@ -59,7 +59,7 @@ open class GoogleAdsManager: NSObject {
             if let interstitial = self.interstitial {
                 interstitial.present(fromRootViewController: viewController)
             } else {
-                print("Ad wasn't ready")
+                AnalyticsManager.trackWith(eventName: .interstitialAdWasntReady)
                 completion?()
             }
             
@@ -81,6 +81,7 @@ open class GoogleAdsManager: NSObject {
             
             if let error = error {
                 print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                AnalyticsManager.trackWith(eventName: .interstitialLoadingError)
                 self.reloadInterstitialRequest()
                 self.completionFullScreenContent?()
                 return
@@ -124,7 +125,7 @@ open class GoogleAdsManager: NSObject {
                 rewarded.present(fromRootViewController: viewController,
                                  userDidEarnRewardHandler: userDidEarnRewardHandler)
             } else {
-                print("Ad wasn't ready")
+                AnalyticsManager.trackWith(eventName: .rewardAdWasntReady)
                 completion?()
             }
             
@@ -142,10 +143,11 @@ open class GoogleAdsManager: NSObject {
         let rewardedRequest = GADRequest()
         
         GADRewardedAd.load(withAdUnitID: rewardedKey,
-                               request: rewardedRequest) { (ad, error) in
+                           request: rewardedRequest) { (ad, error) in
             
             if let error = error {
                 print("Failed to load rewarded ad with error: \(error.localizedDescription)")
+                AnalyticsManager.trackWith(eventName: .rewardLoadingError)
                 self.reloadRewardedRequest()
                 self.completionFullScreenContent?()
                 return
@@ -191,26 +193,27 @@ extension GoogleAdsManager: GADFullScreenContentDelegate {
 extension GoogleAdsManager: GADBannerViewDelegate {
     
     public func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
-      print("bannerViewDidReceiveAd")
+        print("bannerViewDidReceiveAd")
     }
-
+    
     public func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
-      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+        print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+        AnalyticsManager.trackWith(eventName: .bannerLoadingError)
     }
-
+    
     public func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
-      print("bannerViewDidRecordImpression")
+        print("bannerViewDidRecordImpression")
     }
-
+    
     public func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
-      print("bannerViewWillPresentScreen")
+        print("bannerViewWillPresentScreen")
     }
-
+    
     public func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
-      print("bannerViewWillDismissScreen")
+        print("bannerViewWillDismissScreen")
     }
-
+    
     public func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
-      print("bannerViewDidDismissScreen")
+        print("bannerViewDidDismissScreen")
     }
 }
