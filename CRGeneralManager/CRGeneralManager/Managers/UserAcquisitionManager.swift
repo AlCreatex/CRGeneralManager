@@ -22,7 +22,7 @@ open class UserAcquisitionManager: NSObject {
         }
     }
     
-    public struct EndPoint {
+    internal struct EndPoint {
                 
         public var rawValue: String
         
