@@ -3,12 +3,14 @@
 ## CocoaPods Install
 Add ```pod 'CRGeneralManager', :git => "https://github.com/AlCreatex/CRGeneralManager.git"``` to your Podfile. "CRGeneralManager" is the name of the library.
 
+
 ## Organic or Not Organic 
 1) Свойство через которое можно определять, показать орагнический экран или же не органический:
 
 ```swift
 UserDefaultsProperties.isStartNowAppsFlyer
 ```
+
 
 ## GoogleAdsManager
 1) При первом запуске приложения, вы можете вызвать configuration, **НО ЕСЛИ ВЫ ЗАПУСКАЕТЕ AppManager, ВЫ МОЖЕТЕ ПРОПУСТИТЬ ЭТОТ ПУНКТ**:
@@ -41,6 +43,7 @@ GoogleAdsManager.shared.presentRewarded(viewController: self) {
 ```swift
 GoogleAdsManager.shared.present(bannerView: GADBannerView, viewController: self)
 ```
+
 
 ## StoreManager
 1) При первом запуске приложения, вы можете вызвать configuration, **НО ЕСЛИ ВЫ ЗАПУСКАЕТЕ AppManager, ВЫ МОЖЕТЕ ПРОПУСТИТЬ ЭТОТ ПУНКТ**:
@@ -76,15 +79,15 @@ StoreManager.shared.restore { (result) in
    }
 }
 ```
-
-5) **В StoreManager все события для аналитики присутствуют, дополнительно при вызове методов их прописывать не надо.**
-
-Получение информации о покупке:
+5) Получение информации о покупке:
 ```swift
 StoreManager.shared.rectriveInfo(productBundle: "Bundle вашей покупки или подписки") { (product) in
    "Ваши действия, после когда вы получите продукт"
 }
 ```
+
+6) **В StoreManager все события для аналитики присутствуют, дополнительно при вызове методов их прописывать не надо.**
+
 
 ## AnalyticsManager
 1) Для отправки ивента, вы должны вызвать:
@@ -94,6 +97,7 @@ AnalyticsManager.trackWith(eventName: .init(rawValue: "Выбрать из сп�
 ```
 
 2) Отправлять ивент по успешной подписке как и отмене покупки не требуется, это уже прописано внутри StoreManager.
+
 
 ## AppManager
 1) Для запуска всех сервисов, вы должны вызывать в AppDelegate:
@@ -126,6 +130,7 @@ public func configuration(application: UIApplication,
 }
 ```
 
+
 ## TrackingTransparencyManager
 1) Для запуска Firebase, FirebaseRemoteConfig, AppsFlyer, ATT, вы должны вызвать в AppDelegate:
 
@@ -147,6 +152,7 @@ internal func startScreen() {
 }
 ```
 
+
 ## NVActivityIndicatorView
 1) Для начала наследуйтесь от протокола:
 
@@ -167,8 +173,8 @@ startAnimation()
 stopAnimation()
 ```
 
-## Стэк Pods которые присутствуют:
 
+## Стэк Pods которые присутствуют:
 ```
 pod 'lottie-ios'
 pod 'NVActivityIndicatorView'
