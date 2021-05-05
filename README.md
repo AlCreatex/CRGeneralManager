@@ -51,7 +51,7 @@ StoreManager.shared.configuration()
 
 2) Далее внутри приложения для офрмления покупки или же ее восстановления, вы должны вызвать:
 
-Оформление подписки:
+3) Оформление подписки:
 ```swift
 StoreManager.shared.purchase(product: "Пишем ключ из ProductList") { (result) in
    switch result {
@@ -65,7 +65,7 @@ StoreManager.shared.purchase(product: "Пишем ключ из ProductList") { 
 }
 ```
 
-Восстановление покупки:
+4) Восстановление покупки:
 ```swift
 StoreManager.shared.restore { (result) in
    switch result {
@@ -76,6 +76,8 @@ StoreManager.shared.restore { (result) in
    }
 }
 ```
+
+5) **В StoreManager все события для аналитики присутствуют, дополнительно при вызове методов их прописывать не надо.**
 
 Получение информации о покупке:
 ```swift
