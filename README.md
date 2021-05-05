@@ -145,6 +145,26 @@ internal func startScreen() {
 }
 ```
 
+## NVActivityIndicatorView
+1) Для начала наследуйтесь от протокола:
+
+```swift
+class NameController: UIViewController, ActivityIndicatorProtocol
+```
+
+2) Для установки стартовых параметров, во ViewDidLoad вызовите: 
+
+```swift
+setupActivityIndicator(type: NVActivityIndicatorType)
+```
+
+3) Для старта и остановки анимации, вызывайте методы:
+
+```swift
+startAnimation()
+stopAnimation()
+```
+
 ## Стэк Pods которые присутствуют:
 
 ```
