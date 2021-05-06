@@ -13,7 +13,7 @@ UserDefaultsProperties.isStartNowAppsFlyer
 
 
 ## GoogleAdsManager
-1) При первом запуске приложения, вы можете вызвать configuration, **НО ЕСЛИ ВЫ ЗАПУСКАЕТЕ AppManager, ВЫ МОЖЕТЕ ПРОПУСТИТЬ ЭТОТ ПУНКТ**:
+1) При первом запуске приложения, вы можете вызвать configuration, **НО ЕСЛИ ВЫ ЗАПУСКАЕТЕ AppManager, ВЫ МОЖЕТЕ ПРОПУСТИТЬ ЭТОТ РАЗДЕЛ**:
 
 ```swift
 GoogleAdsManager.shared.configuration()
@@ -46,15 +46,15 @@ GoogleAdsManager.shared.present(bannerView: GADBannerView, viewController: self)
 
 
 ## StoreManager
-1) При первом запуске приложения, вы можете вызвать configuration, **НО ЕСЛИ ВЫ ЗАПУСКАЕТЕ AppManager, ВЫ МОЖЕТЕ ПРОПУСТИТЬ ЭТОТ ПУНКТ**:
+1) При первом запуске приложения, вы можете вызвать configuration, **НО ЕСЛИ ВЫ ЗАПУСКАЕТЕ AppManager, ВЫ МОЖЕТЕ ПРОПУСТИТЬ ЭТОТ РАЗДЕЛ**:
 
 ```swift
 StoreManager.shared.configuration()
 ```
 
-2) Далее внутри приложения для офрмления покупки или же ее восстановления, вы должны вызвать:
+2) Далее внутри приложения для офрмления покупки/подписки или же ее восстановления, вы должны вызвать:
 
-3) Оформление подписки и тестирование внутреннего статуса isActive:
+3) Оформление покупки/подписки и тестирование внутреннего статуса isActive:
 ```swift
 StoreManager.shared.purchase(product: "Пишем ключ из ProductList", isTestingMode: Bool) { (result) in
    switch result {
@@ -68,7 +68,7 @@ StoreManager.shared.purchase(product: "Пишем ключ из ProductList", is
 }
 ```
 
-4) Восстановление покупки:
+4) Восстановление покупки/подписки:
 ```swift
 StoreManager.shared.restore { (result) in
    switch result {
@@ -79,7 +79,7 @@ StoreManager.shared.restore { (result) in
    }
 }
 ```
-5) Получение информации о покупке:
+5) Получение информации о покупке/подписке:
 ```swift
 StoreManager.shared.rectriveInfo(productBundle: "Bundle вашей покупки или подписки") { (product) in
    "Ваши действия, после когда вы получите продукт"
