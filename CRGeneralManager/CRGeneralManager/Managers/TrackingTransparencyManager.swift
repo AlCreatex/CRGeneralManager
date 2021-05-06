@@ -3,85 +3,66 @@ import AppTrackingTransparency
 import AdSupport
 import FBSDKCoreKit.FBSDKSettings
 import AppsFlyerLib
-import FirebaseCore
-import FirebaseRemoteConfig
 
 open class TrackingTransparencyManager: NSObject {
 
+    //MARK: - Singleton
+    public static let shared = TrackingTransparencyManager()
+    
     //MARK: - Properties
-    fileprivate var completion: CompletionBlock?
-    fileprivate var appsFlyerService: AppsFlyerService?
+    fileprivate var idfaExist: Bool {
+        get {
+            let idfa = ASIdentifierManager.shared().advertisingIdentifier.description
+            print(idfa)
+            return idfa != "00000000-0000-0000-0000-000000000000"
+        }
+    }
 
     //MARK: - Setups
-    public func configuration(isStartFirebase: Bool = true,
-                              isStartRemoteConfig: Bool = true,
-                              startScreen: CompletionBlock? = nil) {
+    public func configuration() {
 
-        self.completion = { startScreen?() }
-        self.setupFirebase(isStartFirebase: isStartFirebase, isStartRemoteConfig: isStartRemoteConfig)
-        self.setupATT()
-    }
-    
-    //MARK: - Firebase
-    fileprivate func setupFirebase(isStartFirebase: Bool, isStartRemoteConfig: Bool) {
-        
-        FirebaseSerivce().configuration(isStartFirebase: isStartFirebase,
-                                        isStartRemoteConfig: isStartRemoteConfig)
-    }
-
-    //MARK: - AppsFlyer
-    fileprivate func setupAppsFlyer() {
-
-        self.appsFlyerService = AppsFlyerService()
-        self.appsFlyerService?.configuration()
-        self.appsFlyerService?.additionalCodeAtAnswerAppsFlyer = { (data) in
-            if data["af_status"] as! String == "Organic" && UserDefaultsProperties.iOSCheck {
-                self.setupAlertATT()
-            }
-            self.appsFlyerService = nil
-        }
-    }
-
-    //MARK: - ATT
-    fileprivate func setupATT() {
-
-        let idfa = ASIdentifierManager.shared().advertisingIdentifier.description
-        print("IDFA: \(idfa)")
-
-        if UserDefaultsProperties.iOSCheck {
-
-            AnalyticsManager.trackWith(eventName: .init(rawValue: "StartCheck_With_iOS_14.4_13"))
-            self.setupAppsFlyer()
-            self.completion?()
+        if self.idfaExist {
+            AppsFlyerService().configuration()
         } else {
-
-            AnalyticsManager.trackWith(eventName: .init(rawValue: "StartCheck_With_iOS_14.0_14.5"))
-            if #available(iOS 14.0, *) {
-                self.setupAlertATT()
-            } else {
-                self.setupAppsFlyer()
-                self.completion?()
-            }
+            self.setupFirstLaunchATT()
         }
     }
 
-    fileprivate func setupAlertATT() {
+    fileprivate func setupFirstLaunchATT() {
 
         if #available(iOS 14.0, *) {
             ATTrackingManager.requestTrackingAuthorization { (state) in
                 switch state {
                 case .denied:
+                    FBSDKCoreKit.Settings.setAdvertiserTrackingEnabled(false)
                     AnalyticsManager.trackWith(eventName: .idfaDisallowed)
                 case .authorized:
+                    FBSDKCoreKit.Settings.setAdvertiserTrackingEnabled(true)
                     AnalyticsManager.trackWith(eventName: .idfaAllowed)
                 default:
                     break
                 }
+                
+                AppsFlyerService().configuration()
+            }
+        }
+    }
+    
+    public func setupInsideAppATT() {
 
-                FBSDKCoreKit.Settings.setAdvertiserTrackingEnabled(true)
-                if !UserDefaultsProperties.iOSCheck {
-                    self.setupAppsFlyer()
-                    self.completion?()
+        if #available(iOS 14.0, *) {
+            if !UserDefaultsProperties.isStartNowAppsFlyer && self.idfaExist {
+                ATTrackingManager.requestTrackingAuthorization { (state) in
+                    switch state {
+                    case .denied:
+                        FBSDKCoreKit.Settings.setAdvertiserTrackingEnabled(false)
+                        AnalyticsManager.trackWith(eventName: .idfaDisallowed)
+                    case .authorized:
+                        FBSDKCoreKit.Settings.setAdvertiserTrackingEnabled(true)
+                        AnalyticsManager.trackWith(eventName: .idfaAllowed)
+                    default:
+                        break
+                    }
                 }
             }
         }

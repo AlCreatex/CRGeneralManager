@@ -17,15 +17,16 @@ open class StoreManager: NSObject {
     fileprivate var products = Set<String>()
     fileprivate let sharedKey = GettingsKeysFromPlist.getKey(from: Constants.NameFile.remoteConfig,
                                                              by: .sharedKey) as? String ?? ""
+    fileprivate var isTestingMode: Bool = false
     
     //MARK: - Status subscriptions
     public var isActive: Bool {
         get {
             if let expiryDate = UserDefaultsProperties.expiryDate {
-                print("State subscription: \(expiryDate <= Date())")
-                return expiryDate <= Date()
+                print("State subscription: \(expiryDate >= Date())")
+                return expiryDate >= Date()
             } else {
-                return false
+                return self.isTestingMode
             }
         }
     }
@@ -42,8 +43,12 @@ open class StoreManager: NSObject {
     fileprivate func getBundlesFromProductPlist() {
         
         if let products = GettingsKeysFromPlist.getAllKeys(from: Constants.NameFile.product) {
-            products.allValues.forEach({ (product) in
-                self.products.insert(product as! String)
+            products.forEach({ (key, value) in
+                if let product = value as? String {
+                    self.products.insert(product)
+                } else {
+                    print("Product: \(key), is not String value")
+                }
             })
         }
     }
@@ -96,10 +101,11 @@ open class StoreManager: NSObject {
     }
     
     //MARK: - Purchase
-    public func purchase(product: String, completion: @escaping (_ result: PurchaseState) -> ()) {
+    public func purchase(product: String, isTestingMode: Bool = false, completion: @escaping (_ result: PurchaseState) -> ()) {
         
         guard let product = GettingsKeysFromPlist.getKey(from: Constants.NameFile.product,
                                                          by: .init(rawValue: product)) as? String else {
+            print("Product: \(product), is not valid")
             return
         }
         
@@ -107,6 +113,7 @@ open class StoreManager: NSObject {
             switch result {
             case .success(purchase: let purchase):
                 
+                self.isTestingMode = isTestingMode
                 self.verifySubscription()
                 self.finishPurchaseTransaction(purchase: purchase)
                 

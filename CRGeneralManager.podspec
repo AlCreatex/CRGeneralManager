@@ -8,7 +8,7 @@ s.summary = "CRGeneralManager"
 s.requires_arc = true
 
 # 2
-s.version = "1.0.20"
+s.version = "1.0.21"
 
 # 3
 s.license = { :type => "MIT", :file => "LICENSE" }
@@ -32,7 +32,7 @@ s.dependency 'SwiftyStoreKit'
 s.dependency 'Firebase'
 s.dependency 'Firebase/Analytics'
 s.dependency 'Firebase/Crashlytics'
-s.dependency 'Firebase/RemoteConfig'
+#s.dependency 'Firebase/RemoteConfig'
 s.dependency 'FBSDKCoreKit'
 s.dependency 'FBAudienceNetwork'
 s.dependency 'YandexMobileMetrica'

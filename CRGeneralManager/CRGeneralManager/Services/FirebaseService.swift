@@ -1,24 +1,27 @@
 import FirebaseCore
-import FirebaseRemoteConfig
+//import FirebaseRemoteConfig
 
 open class FirebaseSerivce: NSObject {
     
     //MARK: - Properties
-    public var remoteConfig: RemoteConfig!
+//    public var remoteConfig: RemoteConfig!
     
     //MARK: - Configuration
-    public func configuration(isStartFirebase: Bool = true, isStartRemoteConfig: Bool = true) {
+    public func configuration(isLaunchFirebase: Bool = true) {
         
-        if isStartFirebase {
+        if isLaunchFirebase {
             FirebaseApp.configure()
-            
-            if isStartRemoteConfig {
-                self.setupRemoteConfig()
-                self.fetchRemoteConfig()
-            }
+           
+            /*
+             if isStartRemoteConfig {
+             self.setupRemoteConfig()
+             self.fetchRemoteConfig()
+             }
+             */
         }
     }
     
+    /*
     //MARK: - Setup RemoteConfig
     fileprivate func setupRemoteConfig() {
         
@@ -52,4 +55,5 @@ open class FirebaseSerivce: NSObject {
             }
         }
     }
+    */
 }

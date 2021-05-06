@@ -9,8 +9,10 @@ open class AppManager: NSObject {
     //MARK: - Methods
     public func configuration(application: UIApplication,
                               launchOptions: [UIApplication.LaunchOptionsKey: Any]?,
+                              isLaunchFirebase: Bool,
                               userAcquisitionServer: UserAcquisitionManager.Url = .inapps) {
         
+        FirebaseSerivce().configuration(isLaunchFirebase: isLaunchFirebase)
         FacebookService().configuration()
         SearchAdsService().configuration()
         YandexService().configuration()

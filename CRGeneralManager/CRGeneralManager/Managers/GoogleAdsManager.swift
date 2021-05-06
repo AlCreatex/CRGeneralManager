@@ -23,7 +23,7 @@ open class GoogleAdsManager: NSObject {
                                                        target: nil)
     
     fileprivate var completionFullScreenContent: CompletionBlock?
-    fileprivate var timeReloadRequest: Double = 60.0
+    fileprivate var timeReloadRequest: Double = 30.0
     
     fileprivate var interstitialKey: String?
     fileprivate var interstitial: GADInterstitialAd?
@@ -44,12 +44,26 @@ open class GoogleAdsManager: NSObject {
     //MARK: - Get keys from plist
     fileprivate func getKeysFromPlist() {
         
-        self.interstitialKey = GettingsKeysFromPlist.getKey(from: Constants.NameFile.remoteConfig,
-                                                            by: .interstitialKey) as? String
-        self.bannerKey = GettingsKeysFromPlist.getKey(from: Constants.NameFile.remoteConfig,
-                                                      by: .bannerKey) as? String
-        self.rewardedKey = GettingsKeysFromPlist.getKey(from: Constants.NameFile.remoteConfig,
-                                                        by: .rewardedKey) as? String
+        self.getInterstitialKey()
+        self.getRewardedKey()
+    }
+    
+    fileprivate func getInterstitialKey() {
+        
+        let interstitialKey = GettingsKeysFromPlist.getKey(from: Constants.NameFile.remoteConfig,
+                                                           by: .interstitialKey) as? String
+        
+        guard let interstitialKey = interstitialKey else { return }
+        self.interstitialKey = interstitialKey.isEmpty ? nil : interstitialKey
+    }
+    
+    fileprivate func getRewardedKey() {
+        
+        let rewardedKey = GettingsKeysFromPlist.getKey(from: Constants.NameFile.remoteConfig,
+                                                       by: .rewardedKey) as? String
+        
+        guard let rewardedKey = rewardedKey else { return }
+        self.rewardedKey = rewardedKey.isEmpty ? nil : rewardedKey
     }
     
     //MARK: - Interstitial
@@ -59,11 +73,11 @@ open class GoogleAdsManager: NSObject {
             if let interstitial = self.interstitial {
                 interstitial.present(fromRootViewController: viewController)
             } else {
+                self.reloadInterstitialRequest()
                 AnalyticsManager.trackWith(eventName: .interstitialAdWasntReady)
                 completion?()
             }
             
-            self.reloadInterstitialRequest()
             self.completionFullScreenContent = {
                 self.interstitial = nil
                 completion?()
@@ -83,7 +97,6 @@ open class GoogleAdsManager: NSObject {
                 print("Failed to load interstitial ad with error: \(error.localizedDescription)")
                 AnalyticsManager.trackWith(eventName: .interstitialLoadingError)
                 self.reloadInterstitialRequest()
-                self.completionFullScreenContent?()
                 return
             }
             
@@ -125,11 +138,11 @@ open class GoogleAdsManager: NSObject {
                 rewarded.present(fromRootViewController: viewController,
                                  userDidEarnRewardHandler: userDidEarnRewardHandler)
             } else {
+                self.reloadRewardedRequest()
                 AnalyticsManager.trackWith(eventName: .rewardAdWasntReady)
                 completion?()
             }
             
-            self.reloadRewardedRequest()
             self.completionFullScreenContent = {
                 self.rewarded = nil
                 completion?()
@@ -149,7 +162,6 @@ open class GoogleAdsManager: NSObject {
                 print("Failed to load rewarded ad with error: \(error.localizedDescription)")
                 AnalyticsManager.trackWith(eventName: .rewardLoadingError)
                 self.reloadRewardedRequest()
-                self.completionFullScreenContent?()
                 return
             }
             
@@ -178,7 +190,6 @@ extension GoogleAdsManager: GADFullScreenContentDelegate {
         print("Ad did fail to present full screen content.")
         self.reloadInterstitialRequest()
         self.reloadRewardedRequest()
-        self.completionFullScreenContent?()
     }
     
     public func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
