@@ -54,7 +54,7 @@ StoreManager.shared.configuration()
 
 2) Далее внутри приложения для офрмления покупки/подписки или же ее восстановления, вы должны вызвать:
 
-3) Оформление покупки/подписки и тестирование внутреннего статуса isActive:
+2.1) Оформление покупки/подписки и тестирование внутреннего статуса isActive:
 ```swift
 StoreManager.shared.purchase(product: "Пишем ключ из ProductList", isTestingMode: Bool) { (result) in
    switch result {
@@ -68,7 +68,7 @@ StoreManager.shared.purchase(product: "Пишем ключ из ProductList", is
 }
 ```
 
-4) Восстановление покупки/подписки:
+2.2) Восстановление покупки/подписки:
 ```swift
 StoreManager.shared.restore { (result) in
    switch result {
@@ -79,14 +79,14 @@ StoreManager.shared.restore { (result) in
    }
 }
 ```
-5) Получение информации о покупке/подписке:
+2.3) Получение информации о покупке/подписке:
 ```swift
 StoreManager.shared.rectriveInfo(productBundle: "Bundle вашей покупки или подписки") { (product) in
    "Ваши действия, после когда вы получите продукт"
 }
 ```
 
-6) **В StoreManager все события для аналитики присутствуют, дополнительно при вызове методов их прописывать не надо.**
+3) **В StoreManager все события для аналитики присутствуют, дополнительно при вызове методов их прописывать не надо.**
 
 
 ## AnalyticsManager
