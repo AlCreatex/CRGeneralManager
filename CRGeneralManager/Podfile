@@ -19,7 +19,6 @@ target 'CRGeneralManager' do
   pod 'Firebase'
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
-  pod 'Firebase/RemoteConfig'
   
   pod 'FBSDKCoreKit'
   pod 'FBAudienceNetwork'

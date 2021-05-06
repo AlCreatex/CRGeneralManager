@@ -1,5 +1,4 @@
 import Foundation
-import FirebaseRemoteConfig
 
 public struct UserDefaultsProperties {
     
@@ -18,12 +17,6 @@ public struct UserDefaultsProperties {
         }
         set {
             UserDefaults.standard.setValue(newValue, forKey: Constants.NameUserDefaults.isStartNowAppsFlyer)
-        }
-    }
-    
-    public static var iOSCheck: Bool {
-        get {
-            return RemoteConfig.remoteConfig().configValue(forKey: "iOSCheck").boolValue
         }
     }
 }
