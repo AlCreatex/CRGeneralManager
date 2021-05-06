@@ -54,9 +54,9 @@ StoreManager.shared.configuration()
 
 2) Далее внутри приложения для офрмления покупки или же ее восстановления, вы должны вызвать:
 
-3) Оформление подписки:
+3) Оформление подписки и тестирование внутреннего статуса isActive:
 ```swift
-StoreManager.shared.purchase(product: "Пишем ключ из ProductList") { (result) in
+StoreManager.shared.purchase(product: "Пишем ключ из ProductList", isTestingMode: Bool) { (result) in
    switch result {
       case .successful:
          print("successful")
@@ -105,6 +105,7 @@ AnalyticsManager.trackWith(eventName: .init(rawValue: "Выбрать из сп�
 ```swift
 AppManager().configuration(application: application, 
 			   launchOptions: launchOptions, 
+			   isLaunchFirebase: Bool,
 			   userAcquisitionServer: .init(rawValue: "Выбрать из списка нужный вам сервер или же написать свой"))
 ```
 
@@ -113,8 +114,10 @@ AppManager().configuration(application: application,
 ```swift
 public func configuration(application: UIApplication,
                           launchOptions: [UIApplication.LaunchOptionsKey: Any]?,
+			  isLaunchFirebase: Bool,
                           userAcquisitionServer: UserAcquisition.Urls = .inapps) {
         
+   FirebaseSerivce().configuration(isLaunchFirebase: isLaunchFirebase)
    FacebookService().configuration()
    SearchAdsService().configuration()
    YandexService().configuration()
@@ -132,29 +135,21 @@ public func configuration(application: UIApplication,
 
 
 ## TrackingTransparencyManager
-1) Для запуска Firebase, FirebaseRemoteConfig, AppsFlyer, ATT, вы должны вызвать в AppDelegate:
+1) Для запуска AppsFlyer, ATT, вы должны вызвать в AppDelegate:
 
 ```swift
-TrackingTransparencyManager().configuration(isStartFirebase: "Флаг на запуск Firebase", 
-					    isStartRemoteConfig: "Флаг на запуcк FirebaseRemoteConfig") {
-   "Тут устанавливаете запуск первого экрана"    
-}
+TrackingTransparencyManager.shared.configuration()
 ```
 
-2) Для запуска первого экрана, вы должны описать функцию, а после вызывать ее в блоке выше:
+2) Для вызова ATT внутри приложения, вы должны вызвать:
 
 ```swift
-internal func startScreen() {
-   let vc = UIStoryboard.init(name: "Наименование вашего Storyboard", bundle: nil).instantiateInitialViewController()!
-   window = UIWindow(frame: UIScreen.main.bounds)
-   window?.rootViewController = vc
-   window?.makeKeyAndVisible()
-}
+TrackingTransparencyManager.shared.setupInsideAppATT()
 ```
 
 
 ## NVActivityIndicatorView
-1) Для начала наследуйтесь от протокола:
+1) Для начала имплементируйте протокол к вашему классу:
 
 ```swift
 class NameController: UIViewController, ActivityIndicatorProtocol
@@ -183,7 +178,6 @@ pod 'SwiftyStoreKit'
 pod 'Firebase'
 pod 'Firebase/Analytics'
 pod 'Firebase/Crashlytics'
-pod 'Firebase/RemoteConfig'
 pod 'FBSDKCoreKit'
 pod 'FBAudienceNetwork'
 pod 'YandexMobileMetrica'
