@@ -45,6 +45,8 @@ open class TrackingTransparencyManager: NSObject {
                 
                 AppsFlyerService().configuration()
             }
+        } else {
+            AppsFlyerService().configuration()
         }
     }
     
