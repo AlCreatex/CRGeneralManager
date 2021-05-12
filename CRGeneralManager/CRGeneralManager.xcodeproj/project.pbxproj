@@ -19,12 +19,6 @@
 		84C67C71260B7A6700D43580 /* GoogleAdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C67C62260B7A6700D43580 /* GoogleAdsManager.swift */; };
 		84C67C72260B7A6700D43580 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C67C63260B7A6700D43580 /* StoreManager.swift */; };
 		84C67C73260B7A6700D43580 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C67C64260B7A6700D43580 /* AnalyticsManager.swift */; };
-		84C67C74260B7A6700D43580 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C67C66260B7A6700D43580 /* Constants.swift */; };
-		84C67C75260B7A6700D43580 /* GettingKeysFromPlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C67C67260B7A6700D43580 /* GettingKeysFromPlist.swift */; };
-		84C67C76260B7A6700D43580 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C67C68260B7A6700D43580 /* Typealias.swift */; };
-		84C67C77260B7A6700D43580 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C67C69260B7A6700D43580 /* UserDefaults.swift */; };
-		84F951592642990C00ED982A /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F951582642990C00ED982A /* Extension+UIColor.swift */; };
-		84F9515C26429AB200ED982A /* ActivityIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F9515B26429AB200ED982A /* ActivityIndicatorProtocol.swift */; };
 		B59C9756FCDD57C6E5AD72AA /* Pods_CRGeneralManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C1F8FA3F60F588F131B8F3A /* Pods_CRGeneralManager.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,12 +39,6 @@
 		84C67C62260B7A6700D43580 /* GoogleAdsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAdsManager.swift; sourceTree = "<group>"; };
 		84C67C63260B7A6700D43580 /* StoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		84C67C64260B7A6700D43580 /* AnalyticsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
-		84C67C66260B7A6700D43580 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		84C67C67260B7A6700D43580 /* GettingKeysFromPlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GettingKeysFromPlist.swift; sourceTree = "<group>"; };
-		84C67C68260B7A6700D43580 /* Typealias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
-		84C67C69260B7A6700D43580 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
-		84F951582642990C00ED982A /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
-		84F9515B26429AB200ED982A /* ActivityIndicatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorProtocol.swift; sourceTree = "<group>"; };
 		8C1F8FA3F60F588F131B8F3A /* Pods_CRGeneralManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CRGeneralManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -87,26 +75,12 @@
 		845B0696260B79E6008A5150 /* CRGeneralManager */ = {
 			isa = PBXGroup;
 			children = (
-				84F951572642990000ED982A /* Extensions */,
-				84F9515A26429AA400ED982A /* Protocols */,
 				84898587260DF68500052A32 /* Managers */,
 				84898585260DF67200052A32 /* Services */,
-				84898581260DF66600052A32 /* Utils */,
 				845B0697260B79E6008A5150 /* CRGeneralManager.h */,
 				845B0698260B79E6008A5150 /* Info.plist */,
 			);
 			path = CRGeneralManager;
-			sourceTree = "<group>";
-		};
-		84898581260DF66600052A32 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				84C67C66260B7A6700D43580 /* Constants.swift */,
-				84C67C67260B7A6700D43580 /* GettingKeysFromPlist.swift */,
-				84C67C68260B7A6700D43580 /* Typealias.swift */,
-				84C67C69260B7A6700D43580 /* UserDefaults.swift */,
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		84898585260DF67200052A32 /* Services */ = {
@@ -132,22 +106,6 @@
 				84C67C61260B7A6700D43580 /* AppManager.swift */,
 			);
 			path = Managers;
-			sourceTree = "<group>";
-		};
-		84F951572642990000ED982A /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				84F951582642990C00ED982A /* Extension+UIColor.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		84F9515A26429AA400ED982A /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				84F9515B26429AB200ED982A /* ActivityIndicatorProtocol.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		8C52B438196F3E4CF82FAD18 /* Frameworks */ = {
@@ -290,21 +248,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				84C67C70260B7A6700D43580 /* AppManager.swift in Sources */,
-				84C67C74260B7A6700D43580 /* Constants.swift in Sources */,
 				84C67C71260B7A6700D43580 /* GoogleAdsManager.swift in Sources */,
 				84C67C73260B7A6700D43580 /* AnalyticsManager.swift in Sources */,
 				84C67C6B260B7A6700D43580 /* AppsFlyerService.swift in Sources */,
 				84C67C6E260B7A6700D43580 /* FacebookService.swift in Sources */,
 				84C67C6F260B7A6700D43580 /* TrackingTransparencyManager.swift in Sources */,
-				84F951592642990C00ED982A /* Extension+UIColor.swift in Sources */,
-				84C67C75260B7A6700D43580 /* GettingKeysFromPlist.swift in Sources */,
 				84C67C6C260B7A6700D43580 /* YandexService.swift in Sources */,
 				84C67C72260B7A6700D43580 /* StoreManager.swift in Sources */,
 				84933F5F260C7EA6000D5493 /* UserAcquisitionManager.swift in Sources */,
-				84F9515C26429AB200ED982A /* ActivityIndicatorProtocol.swift in Sources */,
 				84C67C6D260B7A6700D43580 /* FirebaseService.swift in Sources */,
-				84C67C76260B7A6700D43580 /* Typealias.swift in Sources */,
-				84C67C77260B7A6700D43580 /* UserDefaults.swift in Sources */,
 				84C67C6A260B7A6700D43580 /* SearchAdsService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,7 +402,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.23;
+				MARKETING_VERSION = 1.0.24;
 				PRODUCT_BUNDLE_IDENTIFIER = admin.CRGeneralManager;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -475,7 +427,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.23;
+				MARKETING_VERSION = 1.0.24;
 				PRODUCT_BUNDLE_IDENTIFIER = admin.CRGeneralManager;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

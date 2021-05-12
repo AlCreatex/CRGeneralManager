@@ -9,8 +9,7 @@ target 'CRGeneralManager' do
 
   #Basic
   pod 'lottie-ios'
-  pod 'NVActivityIndicatorView'
-  pod 'DeviceKit'
+  pod 'CRSupportManager', :git => "https://github.com/AlCreatex/CRSupportManager.git"
   
   #Subscription and purchase
   pod 'SwiftyStoreKit'

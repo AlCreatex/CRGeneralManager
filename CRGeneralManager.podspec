@@ -8,13 +8,13 @@ s.summary = "CRGeneralManager"
 s.requires_arc = true
 
 # 2
-s.version = "1.0.23"
+s.version = "1.0.24"
 
 # 3
 s.license = { :type => "MIT", :file => "LICENSE" }
 
 # 4 - Replace with your name and e-mail address
-s.author = { "Keegan Rush" => "al@createx.by" }
+s.author = { "Alex Lebed" => "al@createx.by" }
 
 # 5 - Replace this URL with your own GitHub page's URL (from the address bar)
 s.homepage = "https://github.com/AlCreatex/CRGeneralManager"
@@ -25,14 +25,12 @@ s.source = { :git => "https://github.com/AlCreatex/CRGeneralManager.git",
 
 # 7
 s.static_framework = true
+s.dependency 'CRSupportManager', :git => "https://github.com/AlCreatex/CRSupportManager.git"
 s.dependency 'lottie-ios'
-s.dependency 'NVActivityIndicatorView'
-s.dependency 'DeviceKit'
 s.dependency 'SwiftyStoreKit'
 s.dependency 'Firebase'
 s.dependency 'Firebase/Analytics'
 s.dependency 'Firebase/Crashlytics'
-#s.dependency 'Firebase/RemoteConfig'
 s.dependency 'FBSDKCoreKit'
 s.dependency 'FBAudienceNetwork'
 s.dependency 'YandexMobileMetrica'
