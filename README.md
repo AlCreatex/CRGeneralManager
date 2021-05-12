@@ -13,7 +13,7 @@ UserDefaultsProperties.isStartNowAppsFlyer
 
 
 ## GoogleAdsManager
-1. При первом запуске приложения, вы можете вызвать configuration, **НО ЕСЛИ ВЫ ЗАПУСКАЕТЕ AppManager, ВЫ МОЖЕТЕ ПРОПУСТИТЬ ЭТОТ РАЗДЕЛ**:
+1. При первом запуске приложения, вы можете вызвать configuration, **НО ЕСЛИ ВЫ ЗАПУСКАЕТЕ AppManager, ВЫ МОЖЕТЕ ПРОПУСТИТЬ ЭТОТ ПУНКТ**:
 
 ```swift
 GoogleAdsManager.shared.configuration()
@@ -46,7 +46,7 @@ GoogleAdsManager.shared.present(bannerView: GADBannerView, viewController: self)
 
 
 ## StoreManager
-1. При первом запуске приложения, вы можете вызвать configuration, **НО ЕСЛИ ВЫ ЗАПУСКАЕТЕ AppManager, ВЫ МОЖЕТЕ ПРОПУСТИТЬ ЭТОТ РАЗДЕЛ**:
+1. При первом запуске приложения, вы можете вызвать configuration, **НО ЕСЛИ ВЫ ЗАПУСКАЕТЕ AppManager, ВЫ МОЖЕТЕ ПРОПУСТИТЬ ЭТОТ ПУНКТ**:
 
 ```swift
 StoreManager.shared.configuration()
