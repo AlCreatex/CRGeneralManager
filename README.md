@@ -12,39 +12,6 @@ UserDefaultsProperties.isStartNowAppsFlyer
 ```
 
 
-## GoogleAdsManager
-1. При первом запуске приложения, вы можете вызвать configuration, **НО ЕСЛИ ВЫ ЗАПУСКАЕТЕ AppManager, ВЫ МОЖЕТЕ ПРОПУСТИТЬ ЭТОТ ПУНКТ**:
-
-```swift
-GoogleAdsManager.shared.configuration()
-```
-
-2. Для вызова interstitial рекламы:
-
-```swift
-GoogleAdsManager.shared.presentInterstitial(viewController: self) {
-   "Ваши действия, после того как реклама закроется или же произойдет ошибка загрузки рекламы"
-}
-```
-
-3. Для вызова rewarded рекламы:
-
-```swift
-GoogleAdsManager.shared.presentRewarded(viewController: self) {
-   "Ваши действия, после того как реклама закроется или же произойдет ошибка загрузки рекламы"
-} userDidEarnRewardHandler: {
-   "Ваши действия, после того как реклама закончится, чем наградить пользователя"     
-}
-```
-
-4. Для вызова banner рекламы:
-
-Вам потребуется создать IBOutlet или же создать обьект через код, и поместить его во входной параметр bannerView.
-```swift
-GoogleAdsManager.shared.present(bannerView: GADBannerView, viewController: self)
-```
-
-
 ## StoreManager
 1. При первом запуске приложения, вы можете вызвать configuration, **НО ЕСЛИ ВЫ ЗАПУСКАЕТЕ AppManager, ВЫ МОЖЕТЕ ПРОПУСТИТЬ ЭТОТ ПУНКТ**:
 
@@ -172,8 +139,6 @@ stopAnimation()
 ## Стэк Pods которые присутствуют:
 ```
 pod 'lottie-ios'
-pod 'NVActivityIndicatorView'
-pod 'DeviceKit'
 pod 'SwiftyStoreKit'
 pod 'Firebase'
 pod 'Firebase/Analytics'
@@ -182,12 +147,5 @@ pod 'FBSDKCoreKit'
 pod 'FBAudienceNetwork'
 pod 'YandexMobileMetrica'
 pod 'AppsFlyerFramework'
-pod 'Google-Mobile-Ads-SDK'
-pod 'GoogleMobileAdsMediationIronSource'
-pod 'GoogleMobileAdsMediationAdColony'
-pod 'GoogleMobileAdsMediationAppLovin'
-pod 'GoogleMobileAdsMediationFacebook'
-pod 'GoogleMobileAdsMediationUnity'
-pod 'GoogleMobileAdsMediationTapjoy'
-pod 'GoogleMobileAdsMediationVungle'
+
 ```
