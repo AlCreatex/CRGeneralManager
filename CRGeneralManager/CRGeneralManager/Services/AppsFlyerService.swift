@@ -1,4 +1,5 @@
 import AppsFlyerLib
+import CRSupportManager
 
 open class AppsFlyerService: NSObject {
 
@@ -9,9 +10,9 @@ open class AppsFlyerService: NSObject {
     public func configuration() {
         
         AppsFlyerLib.shared().delegate = self
-        AppsFlyerLib.shared().appsFlyerDevKey = GettingsKeysFromPlist.getKey(from: Constants.NameFile.remoteConfig,
+        AppsFlyerLib.shared().appsFlyerDevKey = GettingsKeysFromPlist.getKey(from: .remoteConfig,
                                                                              by: .appsFlyerKey) as? String ?? ""
-        AppsFlyerLib.shared().appleAppID = GettingsKeysFromPlist.getKey(from: Constants.NameFile.remoteConfig,
+        AppsFlyerLib.shared().appleAppID = GettingsKeysFromPlist.getKey(from: .remoteConfig,
                                                                         by: .appID) as? String ?? ""
         AppsFlyerLib.shared().start()
     }

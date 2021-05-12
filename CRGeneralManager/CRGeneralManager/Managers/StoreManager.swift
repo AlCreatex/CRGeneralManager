@@ -1,4 +1,5 @@
 import SwiftyStoreKit
+import CRSupportManager
 
 open class StoreManager: NSObject {
 
@@ -15,7 +16,7 @@ open class StoreManager: NSObject {
     
     //MARK: - Properties
     fileprivate var products = Set<String>()
-    fileprivate let sharedKey = GettingsKeysFromPlist.getKey(from: Constants.NameFile.remoteConfig,
+    fileprivate let sharedKey = GettingsKeysFromPlist.getKey(from: .remoteConfig,
                                                              by: .sharedKey) as? String ?? ""
     fileprivate var isTestingMode: Bool = false
     
@@ -42,7 +43,7 @@ open class StoreManager: NSObject {
     //MARK: - Get bundles from plist
     fileprivate func getBundlesFromProductPlist() {
         
-        if let products = GettingsKeysFromPlist.getAllKeys(from: Constants.NameFile.product) {
+        if let products = GettingsKeysFromPlist.getAllKeys(from: .product) {
             products.forEach({ (key, value) in
                 if let product = value as? String {
                     self.products.insert(product)
@@ -103,7 +104,7 @@ open class StoreManager: NSObject {
     //MARK: - Purchase
     public func purchase(product: String, isTestingMode: Bool = false, completion: @escaping (_ result: PurchaseState) -> ()) {
         
-        guard let product = GettingsKeysFromPlist.getKey(from: Constants.NameFile.product,
+        guard let product = GettingsKeysFromPlist.getKey(from: .product,
                                                          by: .init(rawValue: product)) as? String else {
             print("Product: \(product), is not valid")
             return

@@ -3,6 +3,7 @@ import YandexMobileMetrica
 import StoreKit
 import FBSDKCoreKit
 import iAd
+import CRSupportManager
 
 open class AppManager: NSObject {
 
@@ -17,7 +18,7 @@ open class AppManager: NSObject {
         SearchAdsService().configuration()
         YandexService().configuration()
         
-        UserAcquisitionManager.shared.configure(withAPIKey: GettingsKeysFromPlist.getKey(from: Constants.NameFile.remoteConfig,
+        UserAcquisitionManager.shared.configure(withAPIKey: GettingsKeysFromPlist.getKey(from: .remoteConfig,
                                                                                          by: .userAcquisitionKey) as? String ?? "",
                                                 urlRequest: userAcquisitionServer)
         UserAcquisitionManager.shared.conversionInfo.fbAnonymousId = AppEvents.anonymousID

@@ -1,4 +1,5 @@
 import FBSDKCoreKit
+import CRSupportManager
 
 open class FacebookService: NSObject {
     
@@ -7,7 +8,7 @@ open class FacebookService: NSObject {
                               advertiserIDCollectionEnabled: Bool = true) {
         
         AppEvents.activateApp()
-        FBSDKCoreKit.Settings.appID = GettingsKeysFromPlist.getKey(from: Constants.NameFile.remoteConfig,
+        FBSDKCoreKit.Settings.appID = GettingsKeysFromPlist.getKey(from: .remoteConfig,
                                                                    by: .facebookKey) as? String
         FBSDKCoreKit.Settings.isAutoLogAppEventsEnabled = autoLogEventsEnabled
         FBSDKCoreKit.Settings.isAdvertiserIDCollectionEnabled = advertiserIDCollectionEnabled

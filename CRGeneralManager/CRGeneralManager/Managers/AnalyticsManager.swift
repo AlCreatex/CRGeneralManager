@@ -3,9 +3,25 @@ import YandexMobileMetrica
 import FBSDKCoreKit
 import FirebaseAnalytics
 import AppsFlyerLib
+import CRSupportManager
 
 open class AnalyticsManager: NSObject {
     
+    //MARK: - Enum
+    fileprivate enum NameAtInfoPlist: String {
+        case appVersion, bundleVersion
+        
+        fileprivate var key: String {
+            switch self {
+            case .appVersion:
+                return "CFBundleShortVersionString"
+            case .bundleVersion:
+                return "CFBundleVersion"
+            }
+        }
+    }
+    
+    //MARK: - Struct enum
     public struct EventName {
         
         public var rawValue: String
@@ -89,8 +105,8 @@ open class AnalyticsManager: NSObject {
     fileprivate static func addititonalParameters(parameters: [AnyHashable: Any]?) -> [AnyHashable: Any] {
         
         var additionalParameters = [AnyHashable: Any]()
-        additionalParameters["app_version"] = Bundle.main.infoDictionary?[Constants.NameAtInfoPlist.appVersion] ?? "AppVersion_Not_Found"
-        additionalParameters["app_build"] = Bundle.main.infoDictionary?[Constants.NameAtInfoPlist.bundleVersion] ?? "AppBuild_Not_Found"
+        additionalParameters["app_version"] = Bundle.main.infoDictionary?[NameAtInfoPlist.appVersion.key] ?? "AppVersion_Not_Found"
+        additionalParameters["app_build"] = Bundle.main.infoDictionary?[NameAtInfoPlist.bundleVersion.key] ?? "AppBuild_Not_Found"
         
         guard var parameters = parameters else {
             return additionalParameters

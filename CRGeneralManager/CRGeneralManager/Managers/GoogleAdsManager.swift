@@ -1,14 +1,29 @@
 import Foundation
 import GoogleMobileAds
+import CRSupportManager
 
 open class GoogleAdsManager: NSObject {
+    
+    //MARK: - Enum
+    fileprivate enum Queue: String {
+        case intersititalTimeOutQueue, rewardedTimeOutQueue
+        
+        fileprivate var identifier: String {
+            switch self {
+            case .intersititalTimeOutQueue:
+                return "com.google.interstitial.queue"
+            case .rewardedTimeOutQueue:
+                return "com.google.rewarded.queue"
+            }
+        }
+    }
     
     //MARK: - Singleton
     public static let shared = GoogleAdsManager()
     
     //MARK: - Properties
     fileprivate var interWorkItem: DispatchWorkItem?
-    fileprivate var interQueue: DispatchQueue = .init(label: Constants.NameQueue.intersititalTimeOutQueue,
+    fileprivate var interQueue: DispatchQueue = .init(label: Queue.intersititalTimeOutQueue.identifier,
                                                       qos: .background,
                                                       attributes: .concurrent,
                                                       autoreleaseFrequency: .never,
@@ -16,7 +31,7 @@ open class GoogleAdsManager: NSObject {
     
     
     fileprivate var rewardWorkItem: DispatchWorkItem?
-    fileprivate var rewardQueue: DispatchQueue = .init(label: Constants.NameQueue.rewardedTimeOutQueue,
+    fileprivate var rewardQueue: DispatchQueue = .init(label: Queue.rewardedTimeOutQueue.identifier,
                                                        qos: .background,
                                                        attributes: .concurrent,
                                                        autoreleaseFrequency: .never,
@@ -50,7 +65,7 @@ open class GoogleAdsManager: NSObject {
     
     fileprivate func getInterstitialKey() {
         
-        let interstitialKey = GettingsKeysFromPlist.getKey(from: Constants.NameFile.remoteConfig,
+        let interstitialKey = GettingsKeysFromPlist.getKey(from: .remoteConfig,
                                                            by: .interstitialKey) as? String
         
         guard let interstitialKey = interstitialKey else { return }
@@ -59,7 +74,7 @@ open class GoogleAdsManager: NSObject {
     
     fileprivate func getRewardedKey() {
         
-        let rewardedKey = GettingsKeysFromPlist.getKey(from: Constants.NameFile.remoteConfig,
+        let rewardedKey = GettingsKeysFromPlist.getKey(from: .remoteConfig,
                                                        by: .rewardedKey) as? String
         
         guard let rewardedKey = rewardedKey else { return }
